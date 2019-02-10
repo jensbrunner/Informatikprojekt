@@ -27,6 +27,7 @@ public class Game {
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
+				delta = Settings.minFrameTime;
 			}
 			then = System.currentTimeMillis();
 			
