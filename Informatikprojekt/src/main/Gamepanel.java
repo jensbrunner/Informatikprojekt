@@ -34,9 +34,13 @@ public class Gamepanel extends JPanel{
 		//background
 		g.setColor(Color.black);
 		g.fillRect(0, 0, 1000, 700);
+		g.setColor(Color.white);
+		for(Vector2 star : Camera.stars) {
+			g.fillRect((int)(star.x-Camera.offset.x), (int)(star.y-Camera.offset.y), 2, 2);
+		}
 		
 		//draw rocket
-		g.setColor(Color.white);
+		g.setColor(Color.gray);
 		Game.rocket.computeVertices();
 		Vector2 nose = (new Vector2(Game.rocket.nose[0], Game.rocket.nose[1]).subtract(Camera.offset));
 		Vector2 left = (new Vector2(Game.rocket.backleft[0], Game.rocket.backleft[1]).subtract(Camera.offset));

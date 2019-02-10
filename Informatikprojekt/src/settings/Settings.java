@@ -6,4 +6,5 @@ public class Settings {
 	public static double rocketFrontLength = 10;
 	public static double rocketSideLength = 5;
 	public static double rocketCornerAngle = 120;
+	public static int totalStars = 1000;
 }

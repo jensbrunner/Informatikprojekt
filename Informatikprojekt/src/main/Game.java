@@ -13,6 +13,9 @@ public class Game {
 	
 	public static void run() {
 		running = true;
+		Camera.makeBackground();
+		
+		
 		long then = System.currentTimeMillis();
 		
 		while(running) {
@@ -27,14 +30,14 @@ public class Game {
 			}
 			then = System.currentTimeMillis();
 			
-			//camera
-			Camera.handleCamera(Game.rocket, delta);
-			
 			//handle Controls
 			Controls.handleControls();
 			
 			//physics
 			Game.rocket.handlePhysics(delta);
+			
+			//camera
+			Camera.handleCamera(Game.rocket, delta);
 			
 			gamepanel.repaint();
 		}	
