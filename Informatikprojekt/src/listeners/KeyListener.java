@@ -2,45 +2,29 @@ package listeners;
 
 import java.awt.event.KeyEvent;
 
-import player.Controls;
+import controls.ControlsPressedHandler;
+import controls.ControlsReleasedHandler;
+import main.Game;
 
 public class KeyListener implements java.awt.event.KeyListener {
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		if(e.getKeyCode() == KeyEvent.VK_UP && Controls.forward != true) {
-			Controls.forward = true;
+		//game
+		if(e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+			Game.running = false;
 		}
-		if(e.getKeyCode() == KeyEvent.VK_DOWN && Controls.back != true) {
-			Controls.back = true;
-		}
-		if(e.getKeyCode() == KeyEvent.VK_RIGHT && Controls.right != true) {
-			Controls.right = true;
-		}
-		if(e.getKeyCode() == KeyEvent.VK_LEFT && Controls.left != true) {
-			Controls.left = true;
-		}
+		
+		ControlsPressedHandler.handleInput(e);
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
-		if(e.getKeyCode() == KeyEvent.VK_UP && Controls.forward == true) {
-			Controls.forward = false;
-		}
-		if(e.getKeyCode() == KeyEvent.VK_DOWN && Controls.back == true) {
-			Controls.back = false;
-		}
-		if(e.getKeyCode() == KeyEvent.VK_RIGHT && Controls.right == true) {
-			Controls.right = false;
-		}
-		if(e.getKeyCode() == KeyEvent.VK_LEFT && Controls.left == true) {
-			Controls.left = false;
-		}
+		ControlsReleasedHandler.handleInput(e);
 	}
 
 	@Override
 	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
 
 	}
 

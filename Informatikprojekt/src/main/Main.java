@@ -3,14 +3,16 @@ package main;
 import javax.swing.JFrame;
 
 import player.RocketPlayer;
+import settings.Settings;
 
 public class Main {
 
 	
 	public static void main(String[] args) {
 		JFrame frame = new JFrame();
-		frame.setBounds(0,0,1000,700);
+		frame.setBounds(0,0,Settings.screenWidth,Settings.screenHeight);
 		frame.setLocationRelativeTo(null);
+		frame.setUndecorated(false);
 		frame.setTitle("Game");
 		frame.setResizable(false);
 		frame.setVisible(true);
@@ -18,11 +20,14 @@ public class Main {
 		Game.gamepanel = new Gamepanel();
 		frame.add(Game.gamepanel);
 		
-		//setup player
-		Game.rocket = new RocketPlayer();
+		//prepare game
+		Game.prepare();
 		
 		//begin game loop
-		Game.run();	
+		Game.run();
+		
+		//if this is ever reached, the game terminates
+		System.exit(0);
 	}
 
 }
