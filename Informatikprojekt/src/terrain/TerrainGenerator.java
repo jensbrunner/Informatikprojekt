@@ -5,9 +5,7 @@ import planet.Planet;
 import settings.Settings;
 
 public class TerrainGenerator {
-	
-	public static int count = 0;
-	
+		
 	public static void populateMap(Planet p) {
 		for(int x = 0; x < Settings.planetWidth; x++) {
 			for(int y = 0; y < Settings.planetHeight; y++) {
@@ -16,9 +14,8 @@ public class TerrainGenerator {
 				}else {
 					p.map[x][y] = BlockType.AIR;
 				}
-				count++;
 			}
 		}
-		System.out.println(count);
+		p.map[4][31] = BlockType.AIR;
 	}
 }

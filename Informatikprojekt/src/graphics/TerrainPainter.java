@@ -17,7 +17,7 @@ public class TerrainPainter {
 
 	public static void paintPlayer(Graphics2D g2) {
 		g2.setColor(Settings.playerColor);
-		g2.fillRect((int)(Game.player.pos.x-Game.player.cam.offset.x), (int)(Game.player.pos.y-Game.player.cam.offset.y), Settings.playerWidth, Settings.playerHeight);
+		g2.fillRect((int)(Game.player.pos.x-Game.player.cam.offset.x), (int)(Game.player.pos.y-Settings.playerHeight-Game.player.cam.offset.y), Settings.playerWidth, Settings.playerHeight);
 	}
 
 	public static void paintBlocks(Graphics2D g2) {

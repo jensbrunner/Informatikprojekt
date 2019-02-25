@@ -33,7 +33,7 @@ public class ControlsPressedHandler {
 		}
 
 		//spaceship
-		if(e.getKeyCode() == KeyEvent.VK_E) {
+		if(e.getKeyCode() == KeyEvent.VK_E  ) {
 			if(Game.player.rocket.inertdamp) {
 				Game.player.rocket.inertdamp = false;
 				Message.dampenersOnTime = -1;

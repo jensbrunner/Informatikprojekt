@@ -34,7 +34,7 @@ public class LoadingHandler {
 		//create camera
 		Game.player.cam = new Camera();
 		
-		Game.player.pos = new Vector2(0,600);
+		Game.player.pos = new Vector2(0,600-Settings.playerHeight);
 		
 		Game.player.cam.center(Game.player);
 		

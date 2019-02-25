@@ -2,6 +2,8 @@ package behaviour;
 
 import controls.TerrainControls;
 import main.Game;
+import planet.BlockType;
+import settings.Settings;
 
 public class TerrainBehaviour {
 

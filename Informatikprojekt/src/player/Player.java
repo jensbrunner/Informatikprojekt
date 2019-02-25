@@ -1,7 +1,9 @@
 package player;
 
+import collision.AABB;
 import planet.Planet;
 import settings.Settings;
+import terrain.TerrainTools;
 import tools.Vector2;
 
 public class Player {
@@ -22,7 +24,24 @@ public class Player {
 	public void handlePhysics(long delta) {
 		delta = delta == 0 ? 1 : delta;
 		
-		pos.x+=vel.x*(delta/1000.0);
-		pos.y+=vel.y*(delta/1000.0);
+		handleGravity(delta);
+				
+		pos.x += vel.x*(delta/1000.0);
+		pos.y += vel.y*(delta/1000.0);
+	}
+	
+	public void handleGravity(long delta) {
+		double dist = TerrainTools.heightAboveGround(pos, curPlanet);
+		if(dist > 0.0) {
+			vel.y += Settings.planetGravAcc*(delta/1000.0);
+		}else {
+			if(vel.y > 0) vel.y = 0;
+			pos.y = TerrainTools.getCellY(pos)*Settings.blockSize;
+		}
+	}
+	
+	public boolean collidesWith(int cellX, int cellY) {
+		AABB playerBox = new AABB(pos.subtract(new Vector2(0, Settings.playerHeight)), Settings.playerHeight, Settings.playerWidth);
+		return false;
 	}
 }

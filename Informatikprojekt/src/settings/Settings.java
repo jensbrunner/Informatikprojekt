@@ -30,7 +30,9 @@ public class Settings {
 	public static int playerWidth = 14;
 	public static int playerHeight = 40;
 	public static int playerWalkSpeed = 70;
+	public static int playerJumpSpeed = 130;
 	public static int planetWidth = 1000;
 	public static int planetHeight = 100;
 	public static int blockSize = 20;
+	public static double planetGravAcc = 500;
 }

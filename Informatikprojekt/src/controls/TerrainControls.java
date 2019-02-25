@@ -13,22 +13,22 @@ public static boolean left = false, right = false, forward = false, back = false
 	
 	public static void handleControls() {
 		if(left) {
-			Game.player.vel.x = -Settings.playerWalkSpeed*10;
-		}
-		if(right) {
-			Game.player.vel.x = Settings.playerWalkSpeed*10;
+			Game.player.vel.x = -Settings.playerWalkSpeed;
+		}else if(right) {
+			Game.player.vel.x = Settings.playerWalkSpeed;
+		}else {
+			Game.player.vel.x = 0;
 		}
 		if(forward) {
-			Game.player.vel.y = -Settings.playerWalkSpeed*10;
+			Game.player.vel.y = -Settings.playerJumpSpeed;
 		}
 		if(back) {
-			Game.player.vel.y = Settings.playerWalkSpeed*10;
+			
 		}
 		if(forward || back || left || right) {
 			any = true;
 		}else {
 			any = false;
-			Game.player.vel = new Vector2(0,0);
 		}
 	}
 }
