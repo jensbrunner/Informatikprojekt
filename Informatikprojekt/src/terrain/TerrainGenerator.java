@@ -16,6 +16,6 @@ public class TerrainGenerator {
 				}
 			}
 		}
-		p.map[4][31] = BlockType.AIR;
+		p.map[200][29] = BlockType.DIRT;
 	}
 }

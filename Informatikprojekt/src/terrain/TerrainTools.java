@@ -48,4 +48,9 @@ public class TerrainTools {
 		}
 		return Double.NaN;
 	}
+	
+	public static boolean isSolid(Planet p, int x, int y) {
+		if(p.map[x][y] == 1) return true;
+		return false;
+	}
 }

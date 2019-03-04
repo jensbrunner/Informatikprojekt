@@ -22,4 +22,13 @@ public class AABB {
 		}
 		return false;
 	}
+	
+	public Vector2 collisionData(AABB other) {
+		Vector2 midA = new Vector2(pos.x + width/2, pos.y + height/2);
+		Vector2 midB = new Vector2(other.pos.x + other.width/2, other.pos.y + other.height/2);
+		
+		double intersectX = (midA.x-midB.x)-height;
+		double intersectY = midA.y-midB.y;
+		return new Vector2(intersectX, intersectY);
+	}
 }

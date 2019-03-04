@@ -38,11 +38,10 @@ public class BehaviourGameStateHandler {
 	
 	public static void handleTerrain(long delta) {
 		
+		TerrainBehaviour.handleControls();
+		
 		TerrainBehaviour.handlePlayer(delta);
 		
 		TerrainBehaviour.handleCamera(delta);
-		
-		TerrainBehaviour.handleControls();
-		
 	}
 }
