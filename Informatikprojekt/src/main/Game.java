@@ -34,6 +34,7 @@ public class Game {
 	}
 	
 	public static void run() {
+		System.out.println("test");
 		running = true;		
 		
 		long then = System.currentTimeMillis();
