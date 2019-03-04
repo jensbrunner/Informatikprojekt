@@ -12,12 +12,14 @@ public class ControlsPressedHandler {
 		if(Game.state == GameState.SPACE) {
 			handleSpaceInput(e);
 		}
+		
 		if(Game.state == GameState.TERRAIN) {
 			handleTerrainInput(e);
 		}
 	}
 
 	public static void handleSpaceInput(KeyEvent e) {
+		
 		//movement
 		if(e.getKeyCode() == KeyEvent.VK_UP && SpaceControls.forward != true) {
 			SpaceControls.forward = true;

@@ -12,7 +12,6 @@ public class Main {
 		JFrame frame = new JFrame();
 		frame.setBounds(0,0,Settings.screenWidth,Settings.screenHeight);
 		frame.setLocationRelativeTo(null);
-		frame.setUndecorated(false);
 		frame.setTitle("Game");
 		frame.setResizable(false);
 		frame.setVisible(true);
@@ -29,5 +28,4 @@ public class Main {
 		//if this is ever reached, the game terminates
 		System.exit(0);
 	}
-
 }

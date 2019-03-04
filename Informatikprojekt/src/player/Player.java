@@ -60,7 +60,7 @@ public class Player {
 					if(this.collidesWith(x, y)) {
 						this.vel = new Vector2(0,0);
 						Vector2 data = this.getCollisionData(x, y);
-						System.out.println(data.x + " : " + data.y);
+						//System.out.println(data.x + " : " + data.y);
 						//this.pos.subtract(data);
 					}
 				}

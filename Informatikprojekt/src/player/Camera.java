@@ -22,7 +22,7 @@ public class Camera {
 	}
 
 	public void handleSpaceScroll(RocketPlayer p, long delta) {
-		delta = delta== 0 ? 1 : delta;
+		delta = delta == 0 ? 1 : delta;
 
 		if(p.pos.x-offset.x > 800 && p.vel.x>0) {
 			offset.x+=(delta/1000.0)*p.vel.x;
@@ -30,10 +30,10 @@ public class Camera {
 		if(p.pos.x-offset.x < 200 && p.vel.x<0) {
 			offset.x+=(delta/1000.0)*p.vel.x;
 		}
-		if(p.pos.y-offset.y > 600 && p.vel.y>0) {
+		if(p.pos.y-offset.y > 500 && p.vel.y>0) {
 			offset.y+=(delta/1000.0)*p.vel.y;
 		}
-		if(p.pos.y-offset.y < 100 && p.vel.y<0) {
+		if(p.pos.y-offset.y < 200 && p.vel.y<0) {
 			offset.y+=(delta/1000.0)*p.vel.y;
 		}
 	}
@@ -47,10 +47,10 @@ public class Camera {
 		if(p.pos.x-offset.x < 200 && p.vel.x<0) {
 			offset.x+=(delta/1000.0)*p.vel.x;
 		}
-		if(p.pos.y-offset.y > 600 && p.vel.y>0) {
+		if(p.pos.y-offset.y > 500 && p.vel.y>0) {
 			offset.y+=(delta/1000.0)*p.vel.y;
 		}
-		if(p.pos.y-offset.y < 100 && p.vel.y<0) {
+		if(p.pos.y-offset.y < 200 && p.vel.y<0) {
 			offset.y+=(delta/1000.0)*p.vel.y;
 		}
 	}

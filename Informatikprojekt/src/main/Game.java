@@ -16,9 +16,8 @@ import tools.Vector2;
 public class Game {
 
 	public static Gamepanel gamepanel;
-	public static boolean running = true;
+	public static boolean running = false;
 	public static GameState state = Settings.startState;
-	
 	public static Player player;
 	
 	public static void prepare() {
@@ -39,7 +38,6 @@ public class Game {
 		long then = System.currentTimeMillis();
 		
 		while(running) {
-			System.out.println("test");
 			long now = System.currentTimeMillis();
 			long delta = now-then;
 			//System.out.println(delta);
