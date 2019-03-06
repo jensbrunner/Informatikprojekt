@@ -12,12 +12,12 @@ public class Settings {
 	public static Vector2 startPos = new Vector2(0,0);
 	public static int screenWidth = 1000;
 	public static int screenHeight = 700;
-	public static int minFrameTime = 1000/200;
+	public static double minFrameTime = 1000.0/300.0;
 	public static double rocketFrontLength = 20;
 	public static double rocketSideLength = 10;
 	public static double rocketCornerAngle = 120;
 	public static int totalStars = 30000;
-	public static double dampenerSpeed = 150;
+	public static double dampenerSpeed = 300;
 	public static int shotsPerSec = 10;
 	public static int shotLife = 10000;
 	public static GameState startState = GameState.SPACE;

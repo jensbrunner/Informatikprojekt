@@ -1,5 +1,6 @@
 package graphics;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 
 import main.Game;
@@ -24,10 +25,11 @@ public class TerrainPainter {
 				
 				int id = Game.player.curPlanet.map[x][y];
 				
-				if(id == BlockType.AIR) g2.setColor(Settings.skyColor);
 				if(id == BlockType.DIRT) g2.setColor(Settings.defaultColor);
 				
-				g2.fillRect(x*Settings.blockSize-(int)Math.round(Game.player.cam.offset.x), y*Settings.blockSize-(int)Math.round(Game.player.cam.offset.y), Settings.blockSize, Settings.blockSize);
+				if(id != BlockType.AIR) {
+					g2.fillRect(x*Settings.blockSize-(int)Math.round(Game.player.cam.offset.x), y*Settings.blockSize-(int)Math.round(Game.player.cam.offset.y), Settings.blockSize+1, Settings.blockSize+1);
+				}
 			}
 		}
 	}

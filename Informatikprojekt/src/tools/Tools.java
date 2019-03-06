@@ -17,11 +17,11 @@ public class Tools {
 	public static long handleDelta(long delta) {
 		if(delta < Settings.minFrameTime) {
 			try {
-				Thread.sleep(Settings.minFrameTime-(delta));
+				Thread.sleep((int)Settings.minFrameTime-(delta));
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			return Settings.minFrameTime;
+			return (int)Settings.minFrameTime;
 		}
 		return delta;
 	}

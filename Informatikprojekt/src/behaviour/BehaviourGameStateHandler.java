@@ -25,7 +25,7 @@ public class BehaviourGameStateHandler {
 		
 		SpaceBehaviour.handleCamera(delta);
 		
-		SpaceBehaviour.handleControls();
+		SpaceBehaviour.handleControls(delta);
 		
 		SpaceBehaviour.handleMessages();
 		
@@ -43,5 +43,6 @@ public class BehaviourGameStateHandler {
 		TerrainBehaviour.handlePlayer(delta);
 		
 		TerrainBehaviour.handleCamera(delta);
+		
 	}
 }

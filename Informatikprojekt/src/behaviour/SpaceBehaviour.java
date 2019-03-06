@@ -19,7 +19,7 @@ public class SpaceBehaviour {
 		Game.player.rocket.handlePhysics(delta);
 	}
 	
-	public static void handleControls() {
+	public static void handleControls(long delta) {
 		SpaceControls.handleControls();
 	}
 	

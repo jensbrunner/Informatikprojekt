@@ -49,13 +49,10 @@ public class GraphicsGameStateHandler {
 		//background/atmosphere
 		TerrainPainter.paintBackground(g2);
 		
-		
 		//blocks
 		TerrainPainter.paintBlocks(g2);
 		
 		//player
-				TerrainPainter.paintPlayer(g2);
-		
+		TerrainPainter.paintPlayer(g2);
 	}
-	
 }
