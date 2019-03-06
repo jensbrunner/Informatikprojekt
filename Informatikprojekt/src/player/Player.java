@@ -1,6 +1,7 @@
 package player;
 
 import collision.AABB;
+import collision.CollisionDetector;
 import controls.TerrainControls;
 import main.Game;
 import planet.Planet;
@@ -18,25 +19,21 @@ public class Player {
 	public Vector2 pos;
 	public Vector2 vel;
 	
-	public boolean onGround;
+	public boolean canJump = true;
 	
 	public Player() {
 		this.pos = new Vector2(Settings.startPos.x, Settings.startPos.y);
 		this.vel = new Vector2(0,0);
-		
-		onGround =  false;
 	}
 	
 	public void handlePhysics(long delta) {
 		delta = delta == 0 ? 1 : delta;
 		
+		handleGravity(delta);
+		handleCollisions(delta);	
+		
 		pos.x += vel.x*(delta/1000.0);
 		pos.y += vel.y*(delta/1000.0);
-		
-		handleGravity(delta);
-		handleCollisions();	
-		
-		
 	}
 	
 	public void handleGravity(long delta) {
@@ -50,35 +47,29 @@ public class Player {
 		vel.y += Settings.planetGravAcc*(delta/1000.0);
 	}
 	
-	public void handleCollisions() {
+	public void handleCollisions(long delta) {
 		int xCoord = TerrainTools.getCellX(pos);
 		int yCoord = TerrainTools.getCellY(pos);
 		
 		for(int x = xCoord-2; x <=  xCoord+2; x++) {
 			for(int y = yCoord-3; y <= yCoord+1; y++) {
 				if(TerrainTools.isSolid(curPlanet, x, y)) {
-					if(this.collidesWith(x, y)) {
-						this.vel = new Vector2(0,0);
-						Vector2 data = this.getCollisionData(x, y);
+					if(CollisionDetector.doesPlayerCollideWithBlock(this, x, y)) {
+						
+						Vector2 data = CollisionDetector.getPlayerCollisionData(this, x, y);
 						//System.out.println(data.x + " : " + data.y);
-						//this.pos.subtract(data);
+						
+						if(Math.abs(data.y) < Math.abs(data.x)) {
+							this.pos.y -= data.y;
+							this.vel.y = 0;
+							this.canJump = true;
+						}else {
+							this.pos.x -= data.x - vel.x * (delta/1000.0);
+							this.vel.x = 0;
+						}
 					}
 				}
 			}
 		}
-	}
-	
-	public boolean collidesWith(int cellX, int cellY) {
-		AABB playerBox = new AABB(pos.subtract(new Vector2(0, Settings.playerHeight)), Settings.playerHeight, Settings.playerWidth);
-		AABB cellBox = new AABB(new Vector2(cellX*Settings.blockSize, cellY*Settings.blockSize), Settings.blockSize, Settings.blockSize);
-		
-		return playerBox.collides(cellBox);
-	}
-	
-	public Vector2 getCollisionData(int cellX, int cellY) {
-		AABB playerBox = new AABB(pos.subtract(new Vector2(0, Settings.playerHeight)), Settings.playerHeight, Settings.playerWidth);
-		AABB cellBox = new AABB(new Vector2(cellX*Settings.blockSize, cellY*Settings.blockSize), Settings.blockSize, Settings.blockSize);
-		
-		return playerBox.collisionData(cellBox);
 	}
 }

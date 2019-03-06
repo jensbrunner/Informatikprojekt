@@ -34,4 +34,8 @@ public class Vector2 {
 		if(mag == 0) return new Vector2(0.0, 0.0);
 		return new Vector2((scale/mag)*x, (scale/mag)*y);
 	}
+	
+	public double angle() {
+		return Math.atan(y/x);
+	}
 }

@@ -23,12 +23,19 @@ public class AABB {
 		return false;
 	}
 	
-	public Vector2 collisionData(AABB other) {
+	public Vector2 getCollisionData(AABB other) {
 		Vector2 midA = new Vector2(pos.x + width/2, pos.y + height/2);
 		Vector2 midB = new Vector2(other.pos.x + other.width/2, other.pos.y + other.height/2);
 		
-		double intersectX = (midA.x-midB.x)-height;
-		double intersectY = midA.y-midB.y;
+		double diffX = midA.x-midB.x;
+		double diffY = midA.y-midB.y;
+		
+		int signX = diffX > 0 ? 1 : -1;
+		int signY = diffY > 0 ? 1 : -1;
+		
+		double intersectX = signX * (Math.abs(diffX) - width/2 - other.width/2);
+		double intersectY = signY * (Math.abs(diffY) - height/2 - other.height/2);
+	
 		return new Vector2(intersectX, intersectY);
 	}
 }

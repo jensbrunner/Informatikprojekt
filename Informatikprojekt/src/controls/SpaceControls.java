@@ -16,18 +16,18 @@ public class SpaceControls {
 	
 	public static void handleControls() {
 		if(left) {
-			Game.player.rocket.angle-=3;
+			Game.player.rocket.angle-=1;
 		}
 		if(right) {
-			Game.player.rocket.angle+=3;
+			Game.player.rocket.angle+=1;
 		}
 		if(forward) {
-			Game.player.rocket.vel.x+=Math.cos(Tools.toRads(Game.player.rocket.angle))*2;
-			Game.player.rocket.vel.y+=Math.sin(Tools.toRads(Game.player.rocket.angle))*2;
+			Game.player.rocket.vel.x+=Math.cos(Tools.toRads(Game.player.rocket.angle))*1;
+			Game.player.rocket.vel.y+=Math.sin(Tools.toRads(Game.player.rocket.angle))*1;
 		}
 		if(back) {
-			Game.player.rocket.vel.x-=Math.cos(Tools.toRads(Game.player.rocket.angle))*2;
-			Game.player.rocket.vel.y-=Math.sin(Tools.toRads(Game.player.rocket.angle))*2;
+			Game.player.rocket.vel.x-=Math.cos(Tools.toRads(Game.player.rocket.angle))*1;
+			Game.player.rocket.vel.y-=Math.sin(Tools.toRads(Game.player.rocket.angle))*1;
 		}
 		if(forward || back) {
 			any = true;

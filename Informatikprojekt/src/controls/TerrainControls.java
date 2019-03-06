@@ -20,7 +20,10 @@ public static boolean left = false, right = false, forward = false, back = false
 			Game.player.vel.x = 0;
 		}
 		if(forward) {
-			Game.player.vel.y = -Settings.playerJumpSpeed;
+			if(Game.player.canJump) {
+				Game.player.vel.y = -Settings.playerJumpSpeed;
+			}
+			Game.player.canJump = false;
 		}
 		if(back) {
 			
