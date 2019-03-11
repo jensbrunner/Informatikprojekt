@@ -1,9 +1,5 @@
 package player;
 
-import collision.AABB;
-import collision.CollisionDetector;
-import controls.TerrainControls;
-import main.Game;
 import planet.Planet;
 import settings.Settings;
 import terrain.TerrainTools;
@@ -30,39 +26,24 @@ public class Player {
 		delta = delta == 0 ? 1 : delta;
 		
 		handleGravity(delta);
-		handleCollisions(delta);
-		handleTeleport();
+		handleCollisions(delta);	
 		
 		pos.x += vel.x*(delta/1000.0);
 		pos.y += vel.y*(delta/1000.0);
-		
 	}
 	
-	private void handleTeleport() {
-		int x = TerrainTools.getCellX(pos);
-		if (x == Settings.planetWidth-1){
-			x = 1;
-			return;
-		}
-		if (x == 0) {
-			x = Settings.planetWidth-1;
-			return;
-		}
-		pos.x = x;
-	}
-	
-	private void handleGravity(long delta) {
-		double dist = TerrainTools.heightAboveGround(pos, curPlanet);
+	public void handleGravity(long delta) {
+		/*double dist = TerrainTools.heightAboveGround(pos, curPlanet);
 		if(dist > 0.0) {
 			
 		}else {
 			if(vel.y > 0) vel.y = 0;
 			pos.y = TerrainTools.getCellY(pos)*Settings.blockSize;
-		}
+		}*/
 		vel.y += Settings.planetGravAcc*(delta/1000.0);
 	}
 	
-	private void handleCollisions(long delta) {
+	public void handleCollisions(long delta) {
 		int xCoord = TerrainTools.getCellX(pos);
 		int yCoord = TerrainTools.getCellY(pos);
 		
