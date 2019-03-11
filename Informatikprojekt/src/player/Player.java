@@ -37,7 +37,7 @@ public class Player {
 		pos.y += vel.y*(delta/1000.0);
 		
 	}
-	//Test123
+	
 	private void handleTeleport() {
 		int x = TerrainTools.getCellX(pos);
 		if (x == Settings.planetWidth-1){
