@@ -1,5 +1,6 @@
 package player;
 
+import collision.CollisionDetector;
 import planet.Planet;
 import settings.Settings;
 import terrain.TerrainTools;
@@ -32,18 +33,11 @@ public class Player {
 		pos.y += vel.y*(delta/1000.0);
 	}
 	
-	public void handleGravity(long delta) {
-		/*double dist = TerrainTools.heightAboveGround(pos, curPlanet);
-		if(dist > 0.0) {
-			
-		}else {
-			if(vel.y > 0) vel.y = 0;
-			pos.y = TerrainTools.getCellY(pos)*Settings.blockSize;
-		}*/
+	private void handleGravity(long delta) {
 		vel.y += Settings.planetGravAcc*(delta/1000.0);
 	}
 	
-	public void handleCollisions(long delta) {
+	private void handleCollisions(long delta) {
 		int xCoord = TerrainTools.getCellX(pos);
 		int yCoord = TerrainTools.getCellY(pos);
 		
@@ -53,7 +47,7 @@ public class Player {
 					if(CollisionDetector.doesPlayerCollideWithBlock(this, x, y)) {
 						
 						Vector2 data = CollisionDetector.getPlayerCollisionData(this, x, y);
-						//System.out.println(data.x + " : " + data.y);
+						System.out.println(data.x + " : " + data.y);
 						
 						if(Math.abs(data.y) < Math.abs(data.x)) {
 							this.pos.y -= data.y;
