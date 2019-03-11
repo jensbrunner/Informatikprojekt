@@ -2,12 +2,14 @@ package listeners;
 
 import java.awt.event.MouseEvent;
 
+import controls.MousePressedHandler;
+import controls.MouseReleasedHandler;
+
 public class MouseListener implements java.awt.event.MouseListener {
 
 	@Override
-	public void mouseClicked(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-
+	public void mouseClicked(MouseEvent e) {
+		
 	}
 
 	@Override
@@ -23,15 +25,13 @@ public class MouseListener implements java.awt.event.MouseListener {
 	}
 
 	@Override
-	public void mousePressed(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-
+	public void mousePressed(MouseEvent e) {
+		MousePressedHandler.handleInput(e);
 	}
 
 	@Override
-	public void mouseReleased(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-
+	public void mouseReleased(MouseEvent e) {
+		MouseReleasedHandler.handleInput(e);
 	}
 
 }

@@ -1,14 +1,14 @@
 package behaviour;
 
 import controls.TerrainControls;
+import controls.TerrainMouse;
 import main.Game;
-import planet.BlockType;
-import settings.Settings;
 
 public class TerrainBehaviour {
 
 	public static void handleControls() {
 		TerrainControls.handleControls();
+		TerrainMouse.handleMouse();
 	}
 
 	public static void handlePlayer(long delta) {

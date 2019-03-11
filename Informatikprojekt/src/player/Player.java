@@ -29,14 +29,13 @@ public class Player {
 		handleTeleport();
 		handleGravity(delta);
 		handleCollisions(delta);
-		handleBounds();
 		
 		pos.x += vel.x*(delta/1000.0);
 		pos.y += vel.y*(delta/1000.0);
 	}
 	
 	private void handleTeleport() {
-		int x = TerrainTools.getCellX(pos);
+		int x = TerrainTools.getCellX(pos.x);
 		
 		if(x == Settings.planetWidth-2) {
 			pos.x = 2*Settings.blockSize;
@@ -48,8 +47,8 @@ public class Player {
 	}
 	
 	private void handleBounds() {
-		int x = TerrainTools.getCellX(pos);
-		int y = TerrainTools.getCellY(pos);
+		int x = TerrainTools.getCellX(pos.x);
+		int y = TerrainTools.getCellY(pos.y);
 				
 		if(x == Settings.planetWidth*Settings.blockSize || x == 0) {
 			vel.x = 0;
@@ -64,20 +63,19 @@ public class Player {
 	}
 	
 	private void handleCollisions(long delta) {
-		int xCoord = TerrainTools.getCellX(pos);
-		int yCoord = TerrainTools.getCellY(pos);
+		int xCoord = TerrainTools.getCellX(pos.x);
+		int yCoord = TerrainTools.getCellY(pos.y);
 		
 		for(int x = xCoord-2; x <=  xCoord+2; x++) {
 			for(int y = yCoord-3; y <= yCoord+1; y++) {
 				
 				//Make sure we only check blocks that exist
-				if(x >= Settings.planetWidth || x < 0 || y >= Settings.planetHeight || y < 0) continue;
+				if(!TerrainTools.doesBlockExist(curPlanet, x, y)) continue;
 					
 				if(TerrainTools.isSolid(curPlanet, x, y)) {
 					if(CollisionDetector.doesPlayerCollideWithBlock(this, x, y)) {
 						
 						Vector2 data = CollisionDetector.getPlayerCollisionData(this, x, y);
-						//System.out.println(data.x + " : " + data.y);
 						
 						if(Math.abs(data.y) < Math.abs(data.x)) {
 							this.pos.y -= data.y;

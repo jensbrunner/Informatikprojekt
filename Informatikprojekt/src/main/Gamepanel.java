@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 import graphics.GraphicsGameStateHandler;
 import listeners.KeyListener;
 import listeners.MouseListener;
+import listeners.MouseMotionListener;
 import listeners.MouseWheelListener;
 
 public class Gamepanel extends JPanel{
@@ -18,6 +19,7 @@ public class Gamepanel extends JPanel{
 		addKeyListener(new KeyListener());
 		addMouseWheelListener(new MouseWheelListener());
 		addMouseListener(new MouseListener());
+		addMouseMotionListener(new MouseMotionListener());
 		setFocusable(true);
 		setFocusTraversalKeysEnabled(false);
 		setDoubleBuffered(true);

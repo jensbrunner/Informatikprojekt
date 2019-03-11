@@ -40,7 +40,7 @@ public class Game {
 		while(running) {
 			long now = System.currentTimeMillis();
 			long delta = now-then;
-			//System.out.println(delta);
+			System.out.println(delta);
 			delta = Tools.handleDelta(delta);
 			then = System.currentTimeMillis();
 			
