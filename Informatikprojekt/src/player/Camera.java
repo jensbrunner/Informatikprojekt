@@ -55,8 +55,8 @@ public class Camera {
 		}
 	}
 	
-	public void center(Player p) {
-		offset.x += p.pos.x - offset.x - Settings.screenWidth/2;
-		offset.y += p.pos.y - offset.y - Settings.screenHeight/2;
+	public void center(Vector2 p) {
+		offset.x += p.x - offset.x - Settings.screenWidth/2;
+		offset.y += p.y - offset.y - Settings.screenHeight/2;
 	}
 }

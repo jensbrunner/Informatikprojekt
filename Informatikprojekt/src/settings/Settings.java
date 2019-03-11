@@ -12,7 +12,7 @@ public class Settings {
 	public static Vector2 startPos = new Vector2(0,0);
 	public static int screenWidth = 1000;
 	public static int screenHeight = 700;
-	public static double minFrameTime = 1000.0/300.0;
+	public static double minFrameTime = 1000.0/247.0;
 	public static double rocketFrontLength = 20;
 	public static double rocketSideLength = 10;
 	public static double rocketCornerAngle = 120;
@@ -29,7 +29,7 @@ public class Settings {
 	public static Color skyColor = new Color(135,206,250);
 	public static int playerWidth = 14;
 	public static int playerHeight = 40;
-	public static int playerWalkSpeed = 120;
+	public static int playerWalkSpeed = 1000;
 	public static int playerJumpSpeed = 250;
 	public static int planetWidth = 1000;
 	public static int planetHeight = 100;
