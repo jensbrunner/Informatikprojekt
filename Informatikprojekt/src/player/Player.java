@@ -31,14 +31,14 @@ public class Player {
 		
 		handleGravity(delta);
 		handleCollisions(delta);
-		//handleTeleport();
+		handleTeleport();
 		
 		pos.x += vel.x*(delta/1000.0);
 		pos.y += vel.y*(delta/1000.0);
 		
 	}
 	
-	/*private void handleTeleport() {
+	private void handleTeleport() {
 		int x = TerrainTools.getCellX(pos);
 		if (x == Settings.planetWidth-1){
 			x = 1;
@@ -49,7 +49,7 @@ public class Player {
 			return;
 		}
 		pos.x = x;
-	}*/
+	}
 	
 	private void handleGravity(long delta) {
 		double dist = TerrainTools.heightAboveGround(pos, curPlanet);
