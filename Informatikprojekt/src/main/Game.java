@@ -34,6 +34,7 @@ public class Game {
 	
 	public static void run() {
 		running = true;		
+		boolean suck = true;
 		
 		long then = System.currentTimeMillis();
 		
