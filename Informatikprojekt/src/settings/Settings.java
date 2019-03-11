@@ -29,10 +29,10 @@ public class Settings {
 	public static Color skyColor = new Color(135,206,250);
 	public static int playerWidth = 14;
 	public static int playerHeight = 40;
-	public static int playerWalkSpeed = 1000;
-	public static int playerJumpSpeed = 250;
-	public static int planetWidth = 1000;
+	public static int playerWalkSpeed = 300;
+	public static int playerJumpSpeed = 380;
+	public static int planetWidth = 400;
 	public static int planetHeight = 100;
 	public static int blockSize = 20;
-	public static double planetGravAcc = 500;
+	public static double planetGravAcc = 1000;
 }

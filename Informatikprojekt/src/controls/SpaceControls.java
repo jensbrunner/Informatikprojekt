@@ -16,10 +16,10 @@ public class SpaceControls {
 	
 	public static void handleControls() {
 		if(left) {
-			Game.player.rocket.angle-=1;
+			Game.player.rocket.angle-=0.75;
 		}
 		if(right) {
-			Game.player.rocket.angle+=1;
+			Game.player.rocket.angle+=0.75;
 		}
 		if(forward) {
 			Game.player.rocket.vel.x+=Math.cos(Tools.toRads(Game.player.rocket.angle))*1;
