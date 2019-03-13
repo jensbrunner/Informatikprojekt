@@ -27,11 +27,14 @@ public class LoadingHandler {
 		Game.player.rocket = new RocketPlayer(new Vector2(Settings.startPos.x,Settings.startPos.y));
 						
 		//add planets
-		//Settings.planets.add(new Planet(new Vector2(0, 100), 200, PlanetType.DEFAULT));
-		
 		for (int x = 0; x < Settings.numberOfPlanets; x++ ) {
-			Settings.planets.add(new Planet(new Vector2((Math.random() > 0.5 ? -1 : 1)*Math.random()*10000, (Math.random() > 0.5 ? -1 : 1)*Math.random()*10000) , 200, PlanetType.DEFAULT));
+			int diameter = (int)(100 + Math.random()*200);//have to cast the value to a integer
+			Settings.planets.add(new Planet(new Vector2((Math.random() > 0.5 ? -1 : 1)*Math.random()*10000, (Math.random() > 0.5 ? -1 : 1)*Math.random()*10000) , diameter, PlanetType.DEFAULT));
 		}
+	}
+	
+	public static void Stefan() {
+		
 	}
 	
 	public static void loadTerrain(Planet p) {
