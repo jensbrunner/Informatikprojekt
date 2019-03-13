@@ -10,6 +10,10 @@ import tools.Vector2;
 
 public class LoadingHandler {
 
+	public static void jens() {
+		
+	}
+	
 	public static void loadSpace() {
 		//create camera
 		Game.player.cam = new Camera();
@@ -19,7 +23,7 @@ public class LoadingHandler {
 			
 			//populate the map with stars
 			for(int i = 0; i < Settings.totalStars; i++) {
-				Game.player.cam.stars.add(new Vector2((Math.random() > 0.5 ? -1 : 1)*Math.random()*10000, (Math.random() > 0.5 ? -1 : 1)*Math.random()*10000));
+				Game.player.cam.stars.add(new Vector2((Math.random() > 0.5 ? -1 : 1) * Math.random()*10000, (Math.random() > 0.5 ? -1 : 1) * Math.random()*10000));
 			}
 		}
 				

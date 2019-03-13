@@ -3,6 +3,7 @@ package main;
 import behaviour.BehaviourGameStateHandler;
 import controls.SpaceControls;
 import entity.EntityHandler;
+import gui.GUIHandler;
 import planet.Planet;
 import planet.PlanetType;
 import player.Camera;
@@ -40,7 +41,7 @@ public class Game {
 		while(running) {
 			long now = System.currentTimeMillis();
 			long delta = now-then;
-			System.out.println(delta);
+			//System.out.println(delta);
 			delta = Tools.handleDelta(delta);
 			then = System.currentTimeMillis();
 			
@@ -51,8 +52,20 @@ public class Game {
 	}
 	
 	public static void switchState(GameState targetState, Planet p) {
-		Game.state = GameState.TERRAIN;
-		LoadingHandler.loadTerrain(p); //TODO: How long to wait, etc
-		//Game.state = targetState;
+		
+		//from space to planet
+		if(Game.state == GameState.SPACE && targetState == GameState.TERRAIN) {
+			Game.state = targetState;
+			LoadingHandler.loadTerrain(p);
+		}
+		
+		//from planet to space 
+		else if(Game.state == GameState.TERRAIN && targetState == GameState.SPACE) {
+			Game.player.rocket.pos = new Vector2(p.pos.x, p.pos.y + 100);
+			Game.state = targetState;
+			LoadingHandler.loadSpace();
+		}
+		
+		GUIHandler.doGUI(Game.gamepanel);
 	}
 }
