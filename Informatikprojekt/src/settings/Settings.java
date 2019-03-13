@@ -21,6 +21,7 @@ public class Settings {
 	public static int shotsPerSec = 10;
 	public static int shotLife = 10000;
 	public static GameState startState = GameState.SPACE;
+	public static int numberOfPlanets = 700;
 	public static ArrayList<Planet> planets = new ArrayList<Planet>();
 	public static Color defaultColor = new Color(0,102,51);
 	public static Color mountainColor = new Color(160,160,160);

@@ -27,7 +27,11 @@ public class LoadingHandler {
 		Game.player.rocket = new RocketPlayer(new Vector2(Settings.startPos.x,Settings.startPos.y));
 						
 		//add planets
-		Settings.planets.add(new Planet(new Vector2(0, 100), 200, PlanetType.DEFAULT));
+		//Settings.planets.add(new Planet(new Vector2(0, 100), 200, PlanetType.DEFAULT));
+		
+		for (int x = 0; x < Settings.numberOfPlanets; x++ ) {
+			Settings.planets.add(new Planet(new Vector2((Math.random() > 0.5 ? -1 : 1)*Math.random()*10000, (Math.random() > 0.5 ? -1 : 1)*Math.random()*10000) , 200, PlanetType.DEFAULT));
+		}
 	}
 	
 	public static void loadTerrain(Planet p) {

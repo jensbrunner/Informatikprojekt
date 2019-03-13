@@ -18,4 +18,5 @@ public class Planet {
 		this.map = new int[Settings.planetWidth][Settings.planetHeight];
 	}
 	
+	
 }
