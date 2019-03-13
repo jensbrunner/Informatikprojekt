@@ -10,7 +10,7 @@ import tools.Vector2;
 
 public class LoadingHandler {
 
-	public static void jens() {
+	public static void jensfunktion() {
 		
 	}
 	
