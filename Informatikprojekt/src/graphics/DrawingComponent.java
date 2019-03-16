@@ -1,31 +1,32 @@
-package main;
+package graphics;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
-import java.awt.Toolkit;
 
-import javax.swing.JPanel;
+import javax.swing.JComponent;
 
-import graphics.GraphicsGameStateHandler;
 import listeners.KeyListener;
 import listeners.MouseListener;
 import listeners.MouseMotionListener;
 import listeners.MouseWheelListener;
+import settings.Settings;
 
-public class Gamepanel extends JPanel{
-		
-	public Gamepanel() {
+public class DrawingComponent extends JComponent{
+
+	public DrawingComponent() {
+		setBounds(0, 0, Settings.screenWidth, Settings.screenHeight);
+		setLayout(null);
 		addKeyListener(new KeyListener());
 		addMouseWheelListener(new MouseWheelListener());
 		addMouseListener(new MouseListener());
 		addMouseMotionListener(new MouseMotionListener());
 		setFocusable(true);
 		setFocusTraversalKeysEnabled(false);
-		setDoubleBuffered(true);
 	}
 	
-	public void paint(Graphics g) {
+	@Override
+	public void paintComponent(Graphics g) {
 		
 		//prepare graphics object and rendering hints
 		Graphics2D g2 = (Graphics2D)g;
@@ -38,4 +39,5 @@ public class Gamepanel extends JPanel{
 		g.dispose();
 		g2.dispose();
 	}
+	
 }

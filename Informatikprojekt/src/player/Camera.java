@@ -12,6 +12,8 @@ public class Camera {
 	public Vector2 offset = new Vector2(-Settings.screenWidth/2, -Settings.screenHeight/2);
 	public ArrayList<Vector2> stars = new ArrayList<Vector2>();
 
+	public boolean starsDone = false;
+	
 	public void handleCamera(Player p, long delta) {
 		if(Game.state == GameState.SPACE) {
 			handleSpaceScroll(p.rocket, delta);

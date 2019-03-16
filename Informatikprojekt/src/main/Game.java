@@ -1,9 +1,14 @@
 package main;
 
+import javax.swing.JFrame;
+
 import behaviour.BehaviourGameStateHandler;
 import controls.SpaceControls;
 import entity.EntityHandler;
+import graphics.DrawingComponent;
 import gui.GUIHandler;
+import gui.GUIItems;
+import gui.InventoryWindow;
 import planet.Planet;
 import planet.PlanetType;
 import player.Camera;
@@ -16,7 +21,10 @@ import tools.Vector2;
 
 public class Game {
 
-	public static Gamepanel gamepanel;
+	public static JFrame frame;
+	public static InventoryWindow inventory;
+	public static DrawingComponent draw;
+	public static GUIItems gui;
 	public static boolean running = false;
 	public static GameState state = Settings.startState;
 	public static Player player;
@@ -24,6 +32,7 @@ public class Game {
 	public static void prepare() {
 		
 		Game.player = new Player();
+		gui = new GUIItems();
 		
 		if(Game.state == GameState.SPACE) {
 			LoadingHandler.loadSpace();
@@ -31,6 +40,10 @@ public class Game {
 		if(Game.state == GameState.TERRAIN) {
 			LoadingHandler.loadTerrain(Game.player.curPlanet);
 		}
+		
+		Game.draw = new DrawingComponent();
+		Game.frame.add(Game.draw);
+		Game.draw.requestFocus();
 	}
 	
 	public static void run() {
@@ -47,7 +60,7 @@ public class Game {
 			
 			BehaviourGameStateHandler.handleState(delta);
 			
-			gamepanel.repaint();
+			draw.repaint();
 		}
 	}
 	
@@ -55,17 +68,20 @@ public class Game {
 		
 		//from space to planet
 		if(Game.state == GameState.SPACE && targetState == GameState.TERRAIN) {
-			Game.state = targetState;
 			LoadingHandler.loadTerrain(p);
+			Game.state = targetState;
+			
 		}
 		
 		//from planet to space 
 		else if(Game.state == GameState.TERRAIN && targetState == GameState.SPACE) {
-			Game.player.rocket.pos = new Vector2(p.pos.x, p.pos.y + 100);
-			Game.state = targetState;
 			LoadingHandler.loadSpace();
+			Game.player.rocket.pos = new Vector2(p.pos.x, p.pos.y + p.diameter/1.8);
+			Game.player.cam.center(Game.player.rocket.pos);
+			Game.state = targetState;
+			
 		}
 		
-		GUIHandler.doGUI(Game.gamepanel);
+		GUIHandler.doGUI();
 	}
 }
