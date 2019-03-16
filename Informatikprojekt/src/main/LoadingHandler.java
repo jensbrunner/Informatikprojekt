@@ -34,7 +34,20 @@ public class LoadingHandler {
 		if(Settings.planets.isEmpty()) {
 			for (int x = 0; x < Settings.numberOfPlanets; x++ ) {
 				int diameter = (int)(100 + Math.random()*200);//have to cast the value to a integer
-				Settings.planets.add(new Planet(new Vector2((Math.random() > 0.5 ? -1 : 1)*Math.random()*10000, (Math.random() > 0.5 ? -1 : 1)*Math.random()*10000) , diameter, PlanetType.DEFAULT));
+				
+				Planet newPlanet = new Planet(new Vector2((Math.random() > 0.5 ? -1 : 1)*Math.random()*10000, (Math.random() > 0.5 ? -1 : 1)*Math.random()*10000) , diameter, PlanetType.DEFAULT);
+				
+				//Make sure non-overlap
+				boolean hasOverlap = false;
+				for(Planet p : Settings.planets) {
+					if(p.pos.subtract(newPlanet.pos).mag() < p.diameter/2 + newPlanet.diameter/2) {
+						hasOverlap = true;
+						break;
+					}
+				}
+				if(!hasOverlap) {
+					Settings.planets.add(newPlanet);
+				}
 			}
 		}
 	}
