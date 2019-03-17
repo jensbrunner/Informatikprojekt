@@ -14,7 +14,6 @@ public class KeyListener implements java.awt.event.KeyListener {
 		if(e.getKeyCode() == KeyEvent.VK_ESCAPE) {
 			Game.running = false;
 		}
-		
 		ControlsPressedHandler.handleInput(e);
 	}
 

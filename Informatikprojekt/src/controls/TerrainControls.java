@@ -2,6 +2,7 @@ package controls;
 
 import main.Game;
 import settings.Settings;
+import terrain.TerrainTools;
 import tools.Vector2;
 
 public class TerrainControls {
@@ -26,7 +27,12 @@ public static boolean left = false, right = false, forward = false, back = false
 			Game.player.canJump = false;
 		}
 		if(back) {
-			Game.player.vel.y = Settings.playerJumpSpeed*0.5;
+			int x = TerrainTools.getCellX(Game.player.pos.x);
+			int y = TerrainTools.getCellY(Game.player.pos.y);
+			if(TerrainTools.doesBlockExist(Game.player.curPlanet, x, y) && TerrainTools.isFluid(Game.player.curPlanet, x, y)) {
+				Game.player.vel.y = Settings.playerJumpSpeed*0.5;
+			}
+			
 		}
 		if(forward || back || left || right) {
 			any = true;

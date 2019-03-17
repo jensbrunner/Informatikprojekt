@@ -2,7 +2,6 @@ package main;
 
 import javax.swing.JFrame;
 
-import graphics.DrawingComponent;
 import gui.InventoryWindow;
 import settings.Settings;
 

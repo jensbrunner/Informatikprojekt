@@ -53,6 +53,7 @@ public class LoadingHandler {
 				}
 				if(!hasOverlap) {
 					Settings.planets.add(newPlanet);
+					TerrainGenerator.populateMap(newPlanet);
 				}
 			}
 		}
@@ -62,11 +63,8 @@ public class LoadingHandler {
 		//create camera
 		Game.player.cam = new Camera();
 
-		Game.player.pos = new Vector2(200*Settings.blockSize,28*Settings.blockSize-Settings.playerHeight);
+		Game.player.pos = new Vector2((p.sizeX/2)*Settings.blockSize,28*Settings.blockSize-Settings.playerHeight);
 
 		Game.player.cam.center(Game.player.pos);
-
-		//generate first-time
-		TerrainGenerator.populateMap(p);
 	}
 }

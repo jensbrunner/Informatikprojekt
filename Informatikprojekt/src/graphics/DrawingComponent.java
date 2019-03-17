@@ -10,6 +10,7 @@ import listeners.KeyListener;
 import listeners.MouseListener;
 import listeners.MouseMotionListener;
 import listeners.MouseWheelListener;
+import main.Game;
 import settings.Settings;
 
 public class DrawingComponent extends JComponent{
@@ -17,12 +18,13 @@ public class DrawingComponent extends JComponent{
 	public DrawingComponent() {
 		setBounds(0, 0, Settings.screenWidth, Settings.screenHeight);
 		setLayout(null);
+		
 		addKeyListener(new KeyListener());
 		addMouseWheelListener(new MouseWheelListener());
 		addMouseListener(new MouseListener());
 		addMouseMotionListener(new MouseMotionListener());
+		
 		setFocusable(true);
-		setFocusTraversalKeysEnabled(false);
 	}
 	
 	@Override

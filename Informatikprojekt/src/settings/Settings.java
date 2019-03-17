@@ -10,16 +10,12 @@ import tools.Vector2;
 public class Settings {
 
 	public static Vector2 startPos = new Vector2(0,0);
-	public static int screenWidth = 1000;
-	public static int screenHeight = 700;
+	public static int screenWidth = 1000, screenHeight = 700;
 	public static double minFrameTime = 1000.0/300.0;
-	public static double rocketFrontLength = 20;
-	public static double rocketSideLength = 10;
-	public static double rocketCornerAngle = 120;
+	public static double rocketFrontLength = 20, rocketSideLength = 10, rocketCornerAngle = 120;
 	public static int totalStars = 30000;
 	public static double dampenerSpeed = 300;
-	public static int shotsPerSec = 10;
-	public static int shotLife = 10000;
+	public static int shotsPerSec = 10, shotLife = 10000;
 	public static GameState startState = GameState.SPACE;
 	public static int numberOfPlanets = 700;
 	public static ArrayList<Planet> planets = new ArrayList<Planet>();
@@ -28,13 +24,11 @@ public class Settings {
 	public static Color waterColor = new Color(0,0,255);
 	public static Color playerColor = Color.GRAY;
 	public static Color skyColor = new Color(135,206,250);
-	public static int playerWidth = 14;
-	public static int playerHeight = 38;
-	public static int playerWalkSpeed = 300;
-	public static int playerJumpSpeed = 380;
-	//public static int planetWidth = 400;
+	public static int playerWidth = 14, playerHeight = 38;
+	public static int playerWalkSpeed = 300, playerJumpSpeed = 380;
 	public static int planetHeight = 100;
 	public static int blockSize = 20;
 	public static double planetGravAcc = 1000;
 	public static double fluidAcc = 1500;
+	public static int buttonHeight = 20, buttonWidth = 100;
 }

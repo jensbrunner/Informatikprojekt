@@ -10,21 +10,34 @@ import javax.swing.JComponent;
 
 import main.Game;
 import main.GameState;
+import settings.Settings;
 
 public class GUIItems {
 
-	public JButton takeOffButton;
+	public JButton takeOffButton, inventoryButton;
 	public ArrayList<JComponent> active = new ArrayList<JComponent>();
 	
 	public GUIItems() {
 		
 		takeOffButton = new JButton();
 		takeOffButton.setText("Take Off");
-		takeOffButton.setBounds(10, 10, 100, 20);
+		takeOffButton.setFocusable(false);
+		takeOffButton.setBounds(10, 10, Settings.buttonWidth, Settings.buttonHeight);
 		takeOffButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				Game.switchState(GameState.SPACE, Game.player.curPlanet);
+			}
+		});
+		
+		inventoryButton = new JButton();
+		inventoryButton.setText("Inventory");
+		inventoryButton.setFocusable(false);
+		inventoryButton.setBounds(10, 35, Settings.buttonWidth, Settings.buttonHeight);
+		inventoryButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				Game.inventory.setVisible(!Game.inventory.isVisible());
 			}
 		});
 	}

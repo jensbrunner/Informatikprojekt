@@ -23,6 +23,8 @@ public class GUIHandler {
 	public static void doTerrainGUI() {
 		Game.gui.removeAllItems();
 		Game.gui.addItem(Game.gui.takeOffButton);
+		Game.gui.addItem(Game.gui.inventoryButton);
+		
 	}
 	
 	public static void doSpaceGUI() {
