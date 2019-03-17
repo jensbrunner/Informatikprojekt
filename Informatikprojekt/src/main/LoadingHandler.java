@@ -1,5 +1,7 @@
 package main;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 import planet.Planet;
 import planet.PlanetType;
 import player.Camera;
@@ -33,9 +35,13 @@ public class LoadingHandler {
 		//add planets if empty
 		if(Settings.planets.isEmpty()) {
 			for (int x = 0; x < Settings.numberOfPlanets; x++ ) {
-				int diameter = (int)(100 + Math.random()*200);//have to cast the value to a integer
 				
-				Planet newPlanet = new Planet(new Vector2((Math.random() > 0.5 ? -1 : 1)*Math.random()*10000, (Math.random() > 0.5 ? -1 : 1)*Math.random()*10000) , diameter, PlanetType.DEFAULT);
+				//type of the planet
+				int type = ThreadLocalRandom.current().nextInt(0, 2+1);
+				
+				int diameter = (int)(80 + Math.random()*400);//have to cast the value to a integer
+				
+				Planet newPlanet = new Planet(new Vector2((Math.random() > 0.5 ? -1 : 1)*Math.random()*10000, (Math.random() > 0.5 ? -1 : 1)*Math.random()*10000) , diameter, type);
 				
 				//Make sure non-overlap
 				boolean hasOverlap = false;

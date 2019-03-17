@@ -25,7 +25,7 @@ public class TerrainMouse {
 				}
 			}
 			if(rclick) {
-				if(Game.player.curPlanet.map[x][y] != BlockType.DIRT) {
+				if(!TerrainTools.isSolid(Game.player.curPlanet, x, y)) {
 					Game.player.curPlanet.map[x][y] = BlockType.DIRT;
 				}
 			}

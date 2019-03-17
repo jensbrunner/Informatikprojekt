@@ -26,12 +26,20 @@ public static boolean left = false, right = false, forward = false, back = false
 			Game.player.canJump = false;
 		}
 		if(back) {
-			
+			Game.player.vel.y = Settings.playerJumpSpeed*0.5;
 		}
 		if(forward || back || left || right) {
 			any = true;
 		}else {
 			any = false;
 		}
+	}
+	
+	public static void resetControls() {
+		left = false;
+		right = false;
+		forward = false;
+		back = false;
+		any = false;
 	}
 }

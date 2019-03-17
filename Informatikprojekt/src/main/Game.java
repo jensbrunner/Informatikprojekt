@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 
 import behaviour.BehaviourGameStateHandler;
 import controls.SpaceControls;
+import controls.TerrainControls;
 import entity.EntityHandler;
 import graphics.DrawingComponent;
 import gui.GUIHandler;
@@ -82,6 +83,8 @@ public class Game {
 			
 		}
 		
+		SpaceControls.resetControls();
+		TerrainControls.resetControls();
 		GUIHandler.doGUI();
 	}
 }

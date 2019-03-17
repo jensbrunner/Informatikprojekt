@@ -26,12 +26,19 @@ public class TerrainTools {
 	}
 	
 	public static boolean isSolid(Planet p, int x, int y) {
-		if(p.map[x][y] == 1) return true;
+		int id = p.map[x][y];
+		if(id == BlockType.DIRT || id == BlockType.ROCK) return true;
+		return false;
+	}
+	
+	public static boolean isFluid(Planet p, int x, int y) {
+		int id = p.map[x][y];
+		if(id == BlockType.WATER) return true;
 		return false;
 	}
 	
 	public static boolean doesBlockExist(Planet p, int x, int y) {
-		if(x >= Settings.planetWidth || x < 0 || y >= Settings.planetHeight || y < 0) {
+		if(x >= p.sizeX || x < 0 || y >= Settings.planetHeight || y < 0) {
 			return false;
 		}
 		return true;

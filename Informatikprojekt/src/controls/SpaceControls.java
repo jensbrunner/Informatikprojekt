@@ -42,4 +42,12 @@ public class SpaceControls {
 			EntityHandler.shots.add(new Shot(Game.player.rocket.nose, Game.player.rocket.vel.add(shotVel), -1 , Game.player.rocket.angle));
 		}
 	}
+	
+	public static void resetControls() {
+		left = false;
+		right = false;
+		forward = false;
+		back = false;
+		any = false;
+	}
 }
