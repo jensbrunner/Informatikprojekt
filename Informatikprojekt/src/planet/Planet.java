@@ -1,5 +1,8 @@
 package planet;
 
+import java.util.ArrayList;
+
+import entity.Enemy;
 import settings.Settings;
 import tools.Vector2;
 
@@ -9,6 +12,7 @@ public class Planet {
 	public int diameter;
 	public int sizeX, sizeY;
 	public int type;
+	public ArrayList<Enemy> enemies = new ArrayList<Enemy>();
 	
 	public int[][] map;
 	

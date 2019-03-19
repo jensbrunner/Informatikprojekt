@@ -25,6 +25,15 @@ public class TerrainTools {
 		return Double.NaN;
 	}
 	
+	public static int highestYAtX(Planet p, int x) {
+		for(int y = 0; y < p.sizeY; y++) {
+			if(TerrainTools.isSolid(p, x, y) || TerrainTools.isFluid(p, x, y)) {
+				return y-1;
+			}
+		}
+		return -1;
+	}
+	
 	public static boolean isSolid(Planet p, int x, int y) {
 		int id = p.map[x][y];
 		if(id == BlockType.DIRT || id == BlockType.ROCK) return true;

@@ -16,6 +16,10 @@ public class GUIHandler {
 		if(Game.state == GameState.SPACE) {
 			GUIHandler.doSpaceGUI();
 		}
+		
+		if(Game.state == GameState.GAMEOVER) {
+			GUIHandler.doGameoverGUI();
+		}
 		Game.frame.add(Game.draw);
 		Game.draw.requestFocus();
 	}
@@ -29,6 +33,11 @@ public class GUIHandler {
 	
 	public static void doSpaceGUI() {
 		Game.gui.removeAllItems();
+	}
+	
+	public static void doGameoverGUI() {
+		Game.gui.removeAllItems();
+		Game.gui.addItem(Game.gui.restartButton);
 	}
 	
 }

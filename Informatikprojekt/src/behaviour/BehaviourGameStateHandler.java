@@ -9,8 +9,8 @@ public class BehaviourGameStateHandler {
 		if(Game.state == GameState.SPACE) {
 			handleSpace(delta);
 		}
-		if(Game.state == GameState.LOADING) {
-			handleLoading(delta);
+		if(Game.state == GameState.GAMEOVER) {
+			handleGameover(delta);
 		}
 		if(Game.state == GameState.TERRAIN) {
 			handleTerrain(delta);
@@ -32,11 +32,13 @@ public class BehaviourGameStateHandler {
 		SpaceBehaviour.handleLanding();
 	}
 	
-	public static void handleLoading(long delta) {
+	public static void handleGameover(long delta) {
 		
 	}
 	
 	public static void handleTerrain(long delta) {
+		
+		TerrainBehaviour.handleEnemies(delta);
 		
 		TerrainBehaviour.handleControls();
 		

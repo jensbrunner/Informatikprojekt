@@ -12,8 +12,8 @@ public class GraphicsGameStateHandler {
 			handleSpace(g2);
 		}
 		
-		if(Game.state == GameState.LOADING) {
-			handleLoading(g2);
+		if(Game.state == GameState.GAMEOVER) {
+			handleGameover(g2);
 		}
 		
 		if(Game.state == GameState.TERRAIN) {
@@ -27,6 +27,7 @@ public class GraphicsGameStateHandler {
 
 		//planets
 		SpacePainter.paintPlanets(g2);
+		
 		//draw rocket
 		SpacePainter.paintRocket(g2);
 
@@ -37,12 +38,12 @@ public class GraphicsGameStateHandler {
 		SpacePainter.paintMessages(g2);
 	}
 
-	public static void handleLoading(Graphics2D g2) {
+	public static void handleGameover(Graphics2D g2) {
 		//background
-		LoadingPainter.paintBackground(g2);
+		GameoverPainter.paintBackground(g2);
 		
 		//text
-		LoadingPainter.paintText(g2);
+		GameoverPainter.paintText(g2);
 	}
 	
 	public static void handleTerrain(Graphics2D g2) {
@@ -51,6 +52,9 @@ public class GraphicsGameStateHandler {
 		
 		//blocks
 		TerrainPainter.paintBlocks(g2);
+		
+		//enemies
+		TerrainPainter.paintEnemies(g2);
 		
 		//player
 		TerrainPainter.paintPlayer(g2);

@@ -1,5 +1,5 @@
 package main;
 
 public enum GameState {
-	SPACE, LANDING, TERRAIN, LOADING
+	SPACE, LANDING, TERRAIN, GAMEOVER
 }

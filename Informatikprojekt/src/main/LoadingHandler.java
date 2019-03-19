@@ -2,21 +2,22 @@ package main;
 
 import java.util.concurrent.ThreadLocalRandom;
 
+import entity.Enemy;
 import planet.Planet;
 import planet.PlanetType;
 import player.Camera;
 import player.RocketPlayer;
 import settings.Settings;
 import terrain.TerrainGenerator;
+import terrain.TerrainTools;
 import tools.Vector2;
 
 public class LoadingHandler {
 
 	public static void loadSpace() {
-		//create camera
-		Game.player.cam = new Camera();
+		Game.player.cam.center(Game.player.rocket.pos);
 
-		//random stars (individual for each player)
+		//random stars aesthetic
 		if(Game.player.cam.stars.isEmpty()) {
 			
 			Game.player.cam.starsDone = false;
@@ -28,9 +29,6 @@ public class LoadingHandler {
 			
 			Game.player.cam.starsDone = true;
 		}
-
-		//setup player
-		Game.player.rocket = new RocketPlayer(new Vector2(Settings.startPos.x,Settings.startPos.y));
 
 		//add planets if empty
 		if(Settings.planets.isEmpty()) {
@@ -60,10 +58,20 @@ public class LoadingHandler {
 	}
 
 	public static void loadTerrain(Planet p) {
-		//create camera
-		Game.player.cam = new Camera();
+		
+		//add enemies if not already an appropriate number
+		int targetEnemies = (int)((p.diameter/200.0) * Settings.enemyCount);
+		if(p.enemies.size() < targetEnemies) {
+			int howMany = targetEnemies-p.enemies.size();
+			for(int i = 0; i < howMany; i++) {
+				int randX = (int) (Math.random() * p.sizeX);
+				Vector2 pos = new Vector2(randX*Settings.blockSize, TerrainTools.highestYAtX(p, randX)*Settings.blockSize-Settings.enemySize);
+				Enemy e = new Enemy(Settings.enemySize, pos, p);
+				p.enemies.add(e);
+			}
+		}
 
-		Game.player.pos = new Vector2((p.sizeX/2)*Settings.blockSize,28*Settings.blockSize-Settings.playerHeight);
+		Game.player.pos = new Vector2((p.sizeX/2)*Settings.blockSize,TerrainTools.highestYAtX(p, p.sizeX/2)*Settings.blockSize);
 
 		Game.player.cam.center(Game.player.pos);
 	}

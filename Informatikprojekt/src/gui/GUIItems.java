@@ -14,7 +14,7 @@ import settings.Settings;
 
 public class GUIItems {
 
-	public JButton takeOffButton, inventoryButton;
+	public JButton takeOffButton, inventoryButton, restartButton;
 	public ArrayList<JComponent> active = new ArrayList<JComponent>();
 	
 	public GUIItems() {
@@ -38,6 +38,17 @@ public class GUIItems {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				Game.inventory.setVisible(!Game.inventory.isVisible());
+			}
+		});
+		
+		restartButton = new JButton();
+		restartButton.setText("Close");
+		restartButton.setFocusable(false);
+		restartButton.setBounds(380, 450, 300, 100);
+		restartButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				System.exit(0);
 			}
 		});
 	}

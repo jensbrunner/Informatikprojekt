@@ -33,6 +33,9 @@ public class Game {
 	public static void prepare() {
 		
 		Game.player = new Player();
+		Game.player.rocket = new RocketPlayer(new Vector2(Settings.startPos.x,Settings.startPos.y));
+		Game.player.cam = new Camera();
+		
 		gui = new GUIItems();
 		
 		if(Game.state == GameState.SPACE) {
@@ -71,7 +74,6 @@ public class Game {
 		if(Game.state == GameState.SPACE && targetState == GameState.TERRAIN) {
 			LoadingHandler.loadTerrain(p);
 			Game.state = targetState;
-			
 		}
 		
 		//from planet to space 
@@ -80,7 +82,10 @@ public class Game {
 			Game.player.rocket.pos = new Vector2(p.pos.x, p.pos.y + p.diameter/1.8);
 			Game.player.cam.center(Game.player.rocket.pos);
 			Game.state = targetState;
-			
+		}
+		
+		else if(targetState == GameState.GAMEOVER) {
+			Game.state = targetState;
 		}
 		
 		SpaceControls.resetControls();
