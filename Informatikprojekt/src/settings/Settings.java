@@ -40,4 +40,5 @@ public class Settings {
 	public static long enemyBehaviourTime = 2000;
 	public static Color enemyColor = Color.red;
 	public static long playerDamageCooldown = 500;
+	public static int inventorySlots = 5;
 }

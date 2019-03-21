@@ -1,6 +1,7 @@
 package player;
 
 import collision.CollisionDetector;
+import inventory.Inventory;
 import main.Game;
 import main.GameState;
 import planet.Planet;
@@ -14,7 +15,8 @@ public class Player {
 	public RocketPlayer rocket;
 	public Planet curPlanet;
 	public Camera cam;
-
+	public Inventory inv;
+	
 	public Vector2 pos;
 	public Vector2 vel;
 

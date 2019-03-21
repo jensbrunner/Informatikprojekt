@@ -1,4 +1,4 @@
-package gui;
+package inventory;
 
 public class InventoryHandler {
 

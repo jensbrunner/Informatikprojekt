@@ -10,6 +10,7 @@ import graphics.DrawingComponent;
 import gui.GUIHandler;
 import gui.GUIItems;
 import gui.InventoryWindow;
+import inventory.Inventory;
 import planet.Planet;
 import planet.PlanetType;
 import player.Camera;
@@ -35,6 +36,7 @@ public class Game {
 		Game.player = new Player();
 		Game.player.rocket = new RocketPlayer(new Vector2(Settings.startPos.x,Settings.startPos.y));
 		Game.player.cam = new Camera();
+		Game.player.inv = new Inventory();
 		
 		gui = new GUIItems();
 		
@@ -79,6 +81,7 @@ public class Game {
 		//from planet to space 
 		else if(Game.state == GameState.TERRAIN && targetState == GameState.SPACE) {
 			LoadingHandler.loadSpace();
+			Game.player.rocket.vel = new Vector2(0,0);
 			Game.player.rocket.pos = new Vector2(p.pos.x, p.pos.y + p.diameter/1.8);
 			Game.player.cam.center(Game.player.rocket.pos);
 			Game.state = targetState;

@@ -1,8 +1,7 @@
 package controls;
 
-import java.awt.event.MouseEvent;
-
 import collision.CollisionDetector;
+import inventory.Item;
 import main.Game;
 import planet.BlockType;
 import terrain.TerrainTools;
@@ -20,13 +19,37 @@ public class TerrainMouse {
 
 		if(TerrainTools.doesBlockExist(Game.player.curPlanet, x, y) && !CollisionDetector.doesPlayerCollideWithBlock(Game.player, x, y)) {
 			if(lclick) {
-				if(Game.player.curPlanet.map[x][y] != BlockType.AIR) {
+				int id = Game.player.curPlanet.map[x][y];
+				
+				if(id != BlockType.AIR) {
 					Game.player.curPlanet.map[x][y] = BlockType.AIR;
+					
+					if(id == BlockType.DIRT) {
+						Game.player.inv.addItem(Item.DIRT, 1);
+					}
+					
+					if(id == BlockType.ROCK) {
+						Game.player.inv.addItem(Item.STONE, 1);
+					}
 				}
 			}
 			if(rclick) {
 				if(!TerrainTools.isSolid(Game.player.curPlanet, x, y)) {
-					Game.player.curPlanet.map[x][y] = BlockType.DIRT;
+					
+					int id = Game.player.inv.held.id;
+					int amount = Game.player.inv.held.amount;
+					
+					if(id != -1) {
+						if(id == Item.DIRT && amount > 0) {
+							Game.player.inv.removeItemHeld(id, 1);
+							Game.player.curPlanet.map[x][y] = BlockType.DIRT;
+						}
+						
+						if(id == Item.STONE && amount > 0) {
+							Game.player.inv.removeItemHeld(id, 1);
+							Game.player.curPlanet.map[x][y] = BlockType.ROCK;
+						}
+					}
 				}
 			}
 		}
