@@ -20,7 +20,7 @@ public class SpaceBehaviour {
 	}
 	
 	public static void handleControls(long delta) {
-		SpaceControls.handleControls();
+		SpaceControls.handleControls(delta);
 	}
 	
 	public static void handleCamera(long delta) {

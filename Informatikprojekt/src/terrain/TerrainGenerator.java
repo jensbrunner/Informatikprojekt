@@ -14,6 +14,8 @@ public class TerrainGenerator {
 				for(int y = 0; y < Settings.planetHeight; y++) {
 					if(y > 30) {
 						p.map[x][y] = BlockType.DIRT;
+						
+						
 					}else {
 						p.map[x][y] = BlockType.AIR;
 					}
@@ -26,6 +28,12 @@ public class TerrainGenerator {
 				for(int y = 0; y < Settings.planetHeight; y++) {
 					if(y > 30) {
 						p.map[x][y] = BlockType.ROCK;
+						double rand = Math.random();
+						if(rand <= 0.0001) {
+							p.map[x][y] = BlockType.EXOTIUM;
+						}else if(rand <= 0.001) {
+							p.map[x][y] = BlockType.GOLD;
+						}
 					}else {
 						p.map[x][y] = BlockType.AIR;
 					}

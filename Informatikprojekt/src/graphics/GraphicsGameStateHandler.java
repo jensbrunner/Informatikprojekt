@@ -53,6 +53,9 @@ public class GraphicsGameStateHandler {
 		//blocks
 		TerrainPainter.paintBlocks(g2);
 		
+		//draw shots
+		SpacePainter.paintShots(g2);
+		
 		//enemies
 		TerrainPainter.paintEnemies(g2);
 		

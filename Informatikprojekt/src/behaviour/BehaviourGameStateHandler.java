@@ -38,9 +38,11 @@ public class BehaviourGameStateHandler {
 	
 	public static void handleTerrain(long delta) {
 		
+		TerrainBehaviour.handleShots(delta);
+		
 		TerrainBehaviour.handleEnemies(delta);
 		
-		TerrainBehaviour.handleControls();
+		TerrainBehaviour.handleControls(delta);
 		
 		TerrainBehaviour.handlePlayer(delta);
 		

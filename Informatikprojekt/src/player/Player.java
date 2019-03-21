@@ -55,18 +55,6 @@ public class Player {
 		}
 	}
 
-	private void handleBounds() {
-		int x = TerrainTools.getCellX(pos.x);
-		int y = TerrainTools.getCellY(pos.y);
-
-		if(x == curPlanet.sizeX*Settings.blockSize || x == 0) {
-			vel.x = 0;
-		}
-		if(y == Settings.planetHeight*Settings.blockSize || y == 0) {
-			vel.y = 0;
-		}
-	}
-
 	private void handleGravity(long delta) {
 		vel.y += Settings.planetGravAcc*(delta/1000.0);
 	}
@@ -123,7 +111,6 @@ public class Player {
 	
 	private void handleHealth() {
 		if(health < 0) {
-			//some sort of game over screen?
 			Game.switchState(GameState.GAMEOVER, curPlanet);
 		}
 	}

@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 
 import entity.Enemy;
+import entity.EntityHandler;
+import entity.Shot;
 import main.Game;
 import planet.BlockType;
 import settings.Settings;
@@ -34,6 +36,8 @@ public class TerrainPainter {
 				if(id == BlockType.DIRT) g2.setColor(Settings.defaultColor);
 				if(id == BlockType.ROCK) g2.setColor(Settings.mountainColor);
 				if(id == BlockType.WATER) g2.setColor(Settings.waterColor);
+				if(id == BlockType.GOLD) g2.setColor(Settings.goldColor);
+				if(id == BlockType.EXOTIUM) g2.setColor(Settings.exotiumColor);
 
 				if(id != BlockType.AIR) {
 					g2.fillRect(x*Settings.blockSize-(int)Math.round(Game.player.cam.offset.x), y*Settings.blockSize-(int)Math.round(Game.player.cam.offset.y), Settings.blockSize+1, Settings.blockSize+1);
@@ -50,6 +54,13 @@ public class TerrainPainter {
 			//border
 			g2.setColor(Color.BLACK);
 			g2.drawRect((int)Math.round(e.pos.x-Game.player.cam.offset.x), (int)Math.round(e.pos.y-e.size-Game.player.cam.offset.y), e.size, e.size);
+		}
+	}
+	
+	public static void paintShots(Graphics2D g2) {
+		g2.setColor(Color.red);
+		for(Shot s : EntityHandler.shots) {
+			g2.fillOval((int)Math.round(s.pos.x-2-Game.player.cam.offset.x), (int)Math.round(s.pos.y-2-Game.player.cam.offset.y), 5, 5);
 		}
 	}
 }

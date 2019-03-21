@@ -14,7 +14,7 @@ public class SpaceControls {
 	public static boolean shoot = false;
 	public static long lastShoot = -1;
 	
-	public static void handleControls() {
+	public static void handleControls(long delta) {
 		if(left) {
 			Game.player.rocket.angle-=0.75;
 		}
@@ -37,8 +37,8 @@ public class SpaceControls {
 		
 		if(shoot && System.currentTimeMillis() - lastShoot > (1000/Settings.shotsPerSec)) {
 			lastShoot = System.currentTimeMillis();
-			Game.player.rocket.computeVertices();
-			Vector2 shotVel = new Vector2(Math.cos(Tools.toRads(Game.player.rocket.angle))*400, Math.sin(Tools.toRads(Game.player.rocket.angle))*400);
+			Vector2 normDir = new Vector2(Math.cos(Tools.toRads(Game.player.rocket.angle)), Math.sin(Tools.toRads(Game.player.rocket.angle))).norm();
+			Vector2 shotVel = normDir.mult(delta/1000.0).mult(Settings.shotSpeed);
 			EntityHandler.shots.add(new Shot(Game.player.rocket.nose, Game.player.rocket.vel.add(shotVel), -1 , Game.player.rocket.angle));
 		}
 	}
@@ -49,5 +49,6 @@ public class SpaceControls {
 		forward = false;
 		back = false;
 		any = false;
+		shoot = false;
 	}
 }

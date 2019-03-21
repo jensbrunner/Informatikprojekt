@@ -2,6 +2,7 @@ package entity;
 
 import collision.CollisionDetector;
 import main.Game;
+import main.GameState;
 import planet.Planet;
 import player.Player;
 import settings.Settings;
@@ -14,6 +15,7 @@ public class Enemy {
 	public Vector2 pos, vel;
 	public Planet planet;
 	
+	public boolean isDead = false;
 	public double speedModifier;
 	public Player target;
 	public int behaviour; //0 = idle, 1 = left, 2 = right, 3 = chasing
@@ -32,6 +34,7 @@ public class Enemy {
 	public void handle(long delta) {
 		delta = delta == 0 ? 1 : delta;
 		
+		handleHealth();
 		handleBehaviour();
 		handleAttack();
 		handleTeleport();
@@ -45,7 +48,7 @@ public class Enemy {
 	
 	private void handleBehaviour() {
 		
-		if(behaviour != 3 && pos.add(new Vector2(size/2, size/2)).subtract(Game.player.pos.add(new Vector2(Settings.playerWidth/2, Settings.playerHeight/2))).mag() <= Settings.lockOnDistance) {
+		if(behaviour != 3 && pos.add(new Vector2(size/2, size/2)).subtract(Game.player.pos.add(Settings.playerOffset)).mag() <= Settings.lockOnDistance) {
 			target = Game.player;
 			changeBehaviour(3);
 		}
@@ -177,4 +180,9 @@ public class Enemy {
 		lastBehaviourChange = System.currentTimeMillis();
 	}
 	
+	private void handleHealth() {
+		if(health < 0) {
+			isDead = true;
+		}
+	}
 }

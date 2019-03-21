@@ -36,13 +36,13 @@ public class TerrainTools {
 	
 	public static boolean isSolid(Planet p, int x, int y) {
 		int id = p.map[x][y];
-		if(id == BlockType.DIRT || id == BlockType.ROCK) return true;
+		if(BlockType.solids.contains(id)) return true;
 		return false;
 	}
 	
 	public static boolean isFluid(Planet p, int x, int y) {
 		int id = p.map[x][y];
-		if(id == BlockType.WATER) return true;
+		if(BlockType.fluids.contains(id)) return true;
 		return false;
 	}
 	
@@ -53,4 +53,25 @@ public class TerrainTools {
 		return true;
 	}
 	
+	public static boolean hasSolidNeighbour(Planet p, int _x, int _y) {
+		for(int x = _x-1; x <= _x+1; x++) {
+			for(int y = _y-1; y <= _y+1; y++) {
+				if(TerrainTools.doesBlockExist(p, x, y)) {
+					if(TerrainTools.isSolid(p, x, y)) return true;
+				}
+			}
+		}
+		return false;
+	}
+	
+	public static boolean hasEmptyNeighbour(Planet p, int _x, int _y) {
+		for(int x = _x-1; x <= _x+1; x++) {
+			for(int y = _y-1; y <= _y+1; y++) {
+				if(TerrainTools.doesBlockExist(p, x, y)) {
+					if(!TerrainTools.isSolid(p, x, y)) return true;
+				}
+			}
+		}
+		return false;
+	}
 }

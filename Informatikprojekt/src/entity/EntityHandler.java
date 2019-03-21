@@ -15,7 +15,7 @@ public class EntityHandler {
 		while(it.hasNext()) {
 			Shot s = it.next();
 			s.handleShot(delta);
-			if(s.isDead(delta)) {
+			if(s.isDead(delta) || s.isDead) {
 				shots.remove(s);
 			}
 		}

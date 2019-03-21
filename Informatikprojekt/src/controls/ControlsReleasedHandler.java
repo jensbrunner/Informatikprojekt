@@ -17,16 +17,16 @@ public class ControlsReleasedHandler {
 	}
 	
 	public static void handleSpaceInput(KeyEvent e) {
-		if(e.getKeyCode() == KeyEvent.VK_UP && SpaceControls.forward) {
+		if(e.getKeyCode() == KeyEvent.VK_W && SpaceControls.forward) {
 			SpaceControls.forward = false;
 		}
-		if(e.getKeyCode() == KeyEvent.VK_DOWN && SpaceControls.back) {
+		if(e.getKeyCode() == KeyEvent.VK_S && SpaceControls.back) {
 			SpaceControls.back = false;
 		}
-		if(e.getKeyCode() == KeyEvent.VK_RIGHT && SpaceControls.right) {
+		if(e.getKeyCode() == KeyEvent.VK_D && SpaceControls.right) {
 			SpaceControls.right = false;
 		}
-		if(e.getKeyCode() == KeyEvent.VK_LEFT && SpaceControls.left) {
+		if(e.getKeyCode() == KeyEvent.VK_A && SpaceControls.left) {
 			SpaceControls.left = false;
 		}
 		if(e.getKeyCode() == KeyEvent.VK_SPACE && SpaceControls.shoot) {
@@ -35,20 +35,20 @@ public class ControlsReleasedHandler {
 	}
 	
 	public static void handleTerrainInput(KeyEvent e) {
-		if(e.getKeyCode() == KeyEvent.VK_UP && TerrainControls.forward) {
+		if(e.getKeyCode() == KeyEvent.VK_W && TerrainControls.forward) {
 			TerrainControls.forward = false;
 		}
-		if(e.getKeyCode() == KeyEvent.VK_DOWN && TerrainControls.back) {
+		if(e.getKeyCode() == KeyEvent.VK_S && TerrainControls.back) {
 			TerrainControls.back = false;
 		}
-		if(e.getKeyCode() == KeyEvent.VK_RIGHT && TerrainControls.right) {
+		if(e.getKeyCode() == KeyEvent.VK_D && TerrainControls.right) {
 			TerrainControls.right = false;
 		}
-		if(e.getKeyCode() == KeyEvent.VK_LEFT && TerrainControls.left) {
+		if(e.getKeyCode() == KeyEvent.VK_A && TerrainControls.left) {
 			TerrainControls.left = false;
 		}
 		
-		if(e.getKeyCode() == KeyEvent.VK_SPACE && SpaceControls.shoot) {
+		if(e.getKeyCode() == KeyEvent.VK_SPACE && TerrainControls.shoot) {
 			TerrainControls.shoot = false;
 		}
 	}

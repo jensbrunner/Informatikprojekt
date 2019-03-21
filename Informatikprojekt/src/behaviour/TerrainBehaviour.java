@@ -3,12 +3,13 @@ package behaviour;
 import ai.AIHandler;
 import controls.TerrainControls;
 import controls.TerrainMouse;
+import entity.EntityHandler;
 import main.Game;
 
 public class TerrainBehaviour {
 
-	public static void handleControls() {
-		TerrainControls.handleControls();
+	public static void handleControls(long delta) {
+		TerrainControls.handleControls(delta);
 		TerrainMouse.handleMouse();
 	}
 
@@ -22,5 +23,9 @@ public class TerrainBehaviour {
 	
 	public static void handleEnemies(long delta) {
 		AIHandler.handleAIOnPlanet(Game.player.curPlanet, delta);
+	}
+	
+	public static void handleShots(long delta) {
+		EntityHandler.handleEntities(delta);
 	}
 }

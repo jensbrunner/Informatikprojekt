@@ -46,7 +46,12 @@ public class Inventory {
 	public void removeItemHeld(int id, int amount) {
 		if(held.id == id && held.amount > 0) {
 			held.amount -= 1;
-			Game.inventory.slotButtons.get(held.slotID).setText(Item.itemNames.get(id) + " x" + held.amount);
+			if(held.amount == 0) {
+				Game.inventory.slotButtons.get(held.slotID).setText("");
+			}else {
+				Game.inventory.slotButtons.get(held.slotID).setText(Item.itemNames.get(id) + " x" + held.amount);
+			}
+			
 		}
 	}
 

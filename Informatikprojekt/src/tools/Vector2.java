@@ -35,6 +35,10 @@ public class Vector2 {
 		return new Vector2((scale/mag)*x, (scale/mag)*y);
 	}
 	
+	public Vector2 norm() {
+		return mult(1/mag());
+	}
+	
 	public double angle() {
 		return Math.atan(y/x);
 	}

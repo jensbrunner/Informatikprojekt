@@ -24,6 +24,8 @@ public class Settings {
 	public static Color waterColor = new Color(0,0,255);
 	public static Color playerColor = Color.GRAY;
 	public static Color skyColor = new Color(135,206,250);
+	public static Color goldColor = new Color(255,215,0);
+	public static Color exotiumColor = new Color(128, 0, 128);
 	public static int playerWidth = 14, playerHeight = 38;
 	public static int playerWalkSpeed = 300, playerJumpSpeed = 380;
 	public static int planetHeight = 100;
@@ -41,4 +43,10 @@ public class Settings {
 	public static Color enemyColor = Color.red;
 	public static long playerDamageCooldown = 500;
 	public static int inventorySlots = 5;
+	public static int terrainShotsPerSec = 3;
+	public static int terrainShotSpeed = 250000;
+	public static int shotSpeed = 200000;
+	public static double playerReach = 250;
+	public static Vector2 playerOffset = new Vector2(Settings.playerWidth/2, -Settings.playerHeight/2);
+	public static int shotDamage = 10;
 }

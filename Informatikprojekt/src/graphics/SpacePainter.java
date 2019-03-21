@@ -36,7 +36,7 @@ public class SpacePainter {
 	public static void paintShots(Graphics2D g2) {
 		g2.setColor(Color.red);
 		for(Shot s : EntityHandler.shots) {
-			g2.fillOval((int)Math.round(s.pos.x-2-Game.player.cam.offset.x), (int)Math.round(s.pos.y-2-Game.player.cam.offset.y), 4, 4);
+			g2.fillOval((int)Math.round(s.pos.x-2-Game.player.cam.offset.x), (int)Math.round(s.pos.y-2-Game.player.cam.offset.y), 5, 5);
 		}
 	}
 
