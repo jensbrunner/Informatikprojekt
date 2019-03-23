@@ -26,9 +26,8 @@ public class CraftingWindow extends JFrame{
 
 		JButton healButton = new JButton("Bandage");
 		healButton.setToolTipText("Effect: Fully heals you. | Cost: 2 Leather & 1 Gold");
-		healButton.setBounds(10, 10, 100, 20);
+		healButton.setBounds(10, 10, 150, 20);
 		healButton.addActionListener(new ActionListener() {
-
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				if(InventoryHandler.hasItemAmount(Item.GOLD, 1) && InventoryHandler.hasItemAmount(Item.LEATHER, 2)) {
@@ -38,10 +37,24 @@ public class CraftingWindow extends JFrame{
 					System.out.println("Healed");
 				}
 			}
-			
+		});
+		
+		JButton chargeButton = new JButton("Weapon Charge");
+		chargeButton.setToolTipText("Effect: Recharges your gun. | Cost: 1 Exotium");
+		chargeButton.setBounds(10, 40, 150, 20);
+		chargeButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				if(InventoryHandler.hasItemAmount(Item.EXOTIUM, 1)) {
+					Game.player.inv.removeItem(Item.EXOTIUM, 1);
+					Game.player.charge = 50;
+					System.out.println("Recharged");
+				}
+			}
 		});
 		
 		add(healButton);
+		add(chargeButton);
 	}
 	
 }
