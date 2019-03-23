@@ -49,4 +49,5 @@ public class Settings {
 	public static double playerReach = 250;
 	public static Vector2 playerOffset = new Vector2(Settings.playerWidth/2, -Settings.playerHeight/2);
 	public static int shotDamage = 10;
+	public static long destroyWait = 100;
 }

@@ -19,7 +19,7 @@ public class Planet {
 	public Planet(Vector2 pos, int diameter, int type) {
 		this.pos = new Vector2(pos.x, pos.y);
 		this.diameter = diameter;
-		sizeX = (int)(diameter*2);
+		sizeX = (int)(diameter*3);
 		sizeY = Settings.planetHeight;
 		this.type = type;
 		this.map = new int[sizeX][sizeY];

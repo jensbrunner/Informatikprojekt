@@ -18,12 +18,13 @@ public class TerrainMouse {
 		int x = TerrainTools.getCellX(mousePos.x + Game.player.cam.offset.x);
 		int y = TerrainTools.getCellX(mousePos.y + Game.player.cam.offset.y);
 
-		if(TerrainTools.doesBlockExist(Game.player.curPlanet, x, y)  && (new Vector2(x*Settings.blockSize - Settings.blockSize/2, y*Settings.blockSize-Settings.blockSize/2)).subtract(Game.player.pos.add(Settings.playerOffset)).mag() <= Settings.playerReach) {
+		if(System.currentTimeMillis() - Game.player.lastDestroy > Settings.destroyWait && TerrainTools.doesBlockExist(Game.player.curPlanet, x, y)  && (new Vector2(x*Settings.blockSize - Settings.blockSize/2, y*Settings.blockSize-Settings.blockSize/2)).subtract(Game.player.pos.add(Settings.playerOffset)).mag() <= Settings.playerReach) {
 			if(lclick) {
 				int id = Game.player.curPlanet.map[x][y];
 				
 				if(id != BlockType.AIR && TerrainTools.hasEmptyNeighbour(Game.player.curPlanet, x, y)) {
 					Game.player.curPlanet.map[x][y] = BlockType.AIR;
+					Game.player.lastDestroy = System.currentTimeMillis();
 					
 					if(id == BlockType.DIRT) {
 						Game.player.inv.addItem(Item.DIRT, 1);

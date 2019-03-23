@@ -34,6 +34,7 @@ public class CraftingWindow extends JFrame{
 					Game.player.inv.removeItem(Item.GOLD, 1);
 					Game.player.inv.removeItem(Item.LEATHER, 2);
 					Game.player.health = 100;
+					Game.gui.healthLabel.setText("Health: " + Game.player.health + "/100");
 					System.out.println("Healed");
 				}
 			}
@@ -48,6 +49,7 @@ public class CraftingWindow extends JFrame{
 				if(InventoryHandler.hasItemAmount(Item.EXOTIUM, 1)) {
 					Game.player.inv.removeItem(Item.EXOTIUM, 1);
 					Game.player.charge = 50;
+					Game.gui.chargeLabel.setText("Charge: " + Game.player.charge + "/50");
 					System.out.println("Recharged");
 				}
 			}

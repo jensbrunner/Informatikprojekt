@@ -29,6 +29,8 @@ public class GUIHandler {
 		Game.gui.addItem(Game.gui.takeOffButton);
 		Game.gui.addItem(Game.gui.inventoryButton);
 		Game.gui.addItem(Game.gui.craftingButton);
+		Game.gui.addItem(Game.gui.healthLabel);
+		Game.gui.addItem(Game.gui.chargeLabel);
 		
 	}
 	

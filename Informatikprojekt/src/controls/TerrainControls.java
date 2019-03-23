@@ -57,7 +57,7 @@ public class TerrainControls {
 				Vector2 shotVel = dirNorm.mult(delta/1000.0).mult(Settings.terrainShotSpeed);
 				EntityHandler.shots.add(new Shot(Game.player.pos.add(Settings.playerOffset), Game.player.vel.add(shotVel), -1 , 0));
 				Game.player.charge -= 1;
-				System.out.println(Game.player.charge);
+				Game.gui.chargeLabel.setText("Charge: " + Game.player.charge + "/50");
 			}
 		}
 	}

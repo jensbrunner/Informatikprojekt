@@ -182,7 +182,7 @@ public class Enemy {
 	}
 	
 	private void handleHealth() {
-		if(health < 0) {
+		if(!isDead && health < 0) {
 			isDead = true;
 			Game.player.inv.addItem(Item.LEATHER, 2);
 		}

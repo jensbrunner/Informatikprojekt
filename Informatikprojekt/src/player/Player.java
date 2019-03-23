@@ -20,7 +20,7 @@ public class Player {
 	public Vector2 pos;
 	public Vector2 vel;
 
-	public long lastBuild;
+	public long lastDestroy;
 	
 	public int charge = 50;
 	public int health = 100;
@@ -49,11 +49,11 @@ public class Player {
 	private void handleTeleport() {
 		int x = TerrainTools.getCellX(pos.x);
 
-		if(x == curPlanet.sizeX-2) {
-			pos.x = 2*Settings.blockSize;
+		if(x == curPlanet.sizeX-30) {
+			pos.x = (30+2)*Settings.blockSize;
 			cam.center(pos);
-		}else if(x == 1) {
-			pos.x = (curPlanet.sizeX-2)*Settings.blockSize;
+		}else if(x == 30) {
+			pos.x = (curPlanet.sizeX-30-2)*Settings.blockSize;
 			cam.center(pos);
 		}
 	}
@@ -111,6 +111,7 @@ public class Player {
 	
 	public void damage(int amount) {
 		health -= amount;
+		Game.gui.healthLabel.setText("Health: " + health + "/100");
 		System.out.println(health);
 		lastDamage = System.currentTimeMillis();
 	}

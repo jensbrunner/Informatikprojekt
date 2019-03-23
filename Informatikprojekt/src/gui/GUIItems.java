@@ -1,5 +1,6 @@
 package gui;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -7,6 +8,8 @@ import java.util.Iterator;
 
 import javax.swing.JButton;
 import javax.swing.JComponent;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 import main.Game;
 import main.GameState;
@@ -15,6 +18,7 @@ import settings.Settings;
 public class GUIItems {
 
 	public JButton takeOffButton, inventoryButton, restartButton, craftingButton;
+	public JLabel healthLabel, chargeLabel;
 	public ArrayList<JComponent> active = new ArrayList<JComponent>();
 	
 	public GUIItems() {
@@ -62,6 +66,18 @@ public class GUIItems {
 				System.exit(0);
 			}
 		});
+		
+		healthLabel = new JLabel();
+		healthLabel.setText("Health: " + Game.player.health + "/100");
+		healthLabel.setForeground(Color.RED);
+		healthLabel.setFocusable(false);
+		healthLabel.setBounds(480, 0, 100, 40);
+		
+		chargeLabel = new JLabel();
+		chargeLabel.setText("Charge: " + Game.player.charge + "/50");
+		chargeLabel.setForeground(Settings.exotiumColor);
+		chargeLabel.setFocusable(false);
+		chargeLabel.setBounds(480, 30, 100, 40);
 	}
 	
 	public void addItem(JComponent item) {
