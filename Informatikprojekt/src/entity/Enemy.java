@@ -1,6 +1,7 @@
 package entity;
 
 import collision.CollisionDetector;
+import inventory.Item;
 import main.Game;
 import main.GameState;
 import planet.Planet;
@@ -183,6 +184,7 @@ public class Enemy {
 	private void handleHealth() {
 		if(health < 0) {
 			isDead = true;
+			Game.player.inv.addItem(Item.LEATHER, 2);
 		}
 	}
 }

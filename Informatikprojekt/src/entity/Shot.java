@@ -3,6 +3,7 @@ package entity;
 import main.Game;
 import main.GameState;
 import settings.Settings;
+import terrain.TerrainTools;
 import tools.Vector2;
 
 public class Shot {
@@ -38,6 +39,11 @@ public class Shot {
 					e.health -= Settings.enemyHealth;
 					isDead = true;
 				}
+			}
+			int x = TerrainTools.getCellX(pos.x);
+			int y = TerrainTools.getCellY(pos.y);
+			if(Game.state == GameState.TERRAIN && TerrainTools.doesBlockExist(Game.player.curPlanet, x, y) && TerrainTools.isSolid(Game.player.curPlanet, x, y)) {
+				isDead = true;
 			}
 		}
 		

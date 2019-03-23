@@ -20,6 +20,7 @@ public class Player {
 	public Vector2 pos;
 	public Vector2 vel;
 
+	public int charge = 50;
 	public int health = 100;
 	public long lastDamage;
 

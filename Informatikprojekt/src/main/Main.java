@@ -2,6 +2,7 @@ package main;
 
 import javax.swing.JFrame;
 
+import gui.CraftingWindow;
 import gui.InventoryWindow;
 import settings.Settings;
 
@@ -17,6 +18,7 @@ public class Main {
 		Game.frame.setVisible(true);
 		
 		Game.inventory = new InventoryWindow();
+		Game.crafting = new CraftingWindow();
 		
 		//prepare game
 		Game.prepare();

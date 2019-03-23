@@ -7,6 +7,7 @@ import controls.SpaceControls;
 import controls.TerrainControls;
 import entity.EntityHandler;
 import graphics.DrawingComponent;
+import gui.CraftingWindow;
 import gui.GUIHandler;
 import gui.GUIItems;
 import gui.InventoryWindow;
@@ -25,6 +26,7 @@ public class Game {
 
 	public static JFrame frame;
 	public static InventoryWindow inventory;
+	public static CraftingWindow crafting;
 	public static DrawingComponent draw;
 	public static GUIItems gui;
 	public static boolean running = false;

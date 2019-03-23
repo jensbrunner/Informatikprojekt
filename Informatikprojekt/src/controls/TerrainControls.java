@@ -52,7 +52,6 @@ public static boolean left = false, right = false, forward = false, back = false
 			Point mousePoint = MouseInfo.getPointerInfo().getLocation();
 			Vector2 mouseLoc = new Vector2(mousePoint.x, mousePoint.y).subtract(new Vector2(Game.frame.getLocation().x, Game.frame.getLocation().y+25));
 			Vector2 withOff = mouseLoc.add(Game.player.cam.offset);
-			System.out.println(mouseLoc.x+":"+ mouseLoc.y);
 			Vector2 dirNorm= withOff.subtract(Game.player.pos.add(Settings.playerOffset)).norm();
 			Vector2 shotVel = dirNorm.mult(delta/1000.0).mult(Settings.terrainShotSpeed);
 			EntityHandler.shots.add(new Shot(Game.player.pos.add(Settings.playerOffset), Game.player.vel.add(shotVel), -1 , 0));

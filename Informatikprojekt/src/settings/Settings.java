@@ -34,9 +34,9 @@ public class Settings {
 	public static double fluidAcc = 1500;
 	public static int buttonHeight = 20, buttonWidth = 100;
 	public static double lockOnDistance = 300, hitDistance = 30;
-	public static int enemyWalkSpeed = 90, enemyRunSpeed = 150, enemyJumpSpeed = 200;
+	public static int enemyWalkSpeed = 200, enemyRunSpeed = 300, enemyJumpSpeed = 200;
 	public static int enemyCount = 10;
-	public static int enemySize = 28;
+	public static int enemySize = 17;
 	public static int enemyHealth = 50;
 	public static int enemyDamage = 10;
 	public static long enemyBehaviourTime = 2000;

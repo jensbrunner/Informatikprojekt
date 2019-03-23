@@ -21,10 +21,8 @@ public class Inventory {
 	}
 
 	public void addItem(int id, int amount) {
-		
-		boolean success = false;
-		
-		//add to first empty or equivalent slot
+				
+		//add to first empty or appropriate slot
 		Iterator<Slot> it = slots.iterator();
 		while(it.hasNext()) {
 			Slot s = it.next();
@@ -39,6 +37,20 @@ public class Inventory {
 				Game.inventory.slotButtons.get(s.slotID).setText(Item.itemNames.get(id) + " x" + s.amount);
 				break;
 				
+			}
+		}
+	}
+	
+	public void removeItem(int id, int amount) {
+		
+		//remove from first appropriate slot
+		Iterator<Slot> it = slots.iterator();
+		while(it.hasNext()) {
+			Slot s = it.next();
+			if(s.id == id) {
+				s.amount -= amount;
+				Game.inventory.slotButtons.get(s.slotID).setText(Item.itemNames.get(id) + " x" + s.amount);
+				break;
 			}
 		}
 	}

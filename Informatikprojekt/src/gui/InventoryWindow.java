@@ -17,7 +17,7 @@ public class InventoryWindow extends JFrame{
 
 	public InventoryWindow() {
 		super("Inventory");
-		setSize(400, 400);
+		setSize(400, 300);
 		setLayout(null);
 
 		addKeyListener(new InvKeyListener());

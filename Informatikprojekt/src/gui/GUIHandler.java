@@ -28,6 +28,7 @@ public class GUIHandler {
 		Game.gui.removeAllItems();
 		Game.gui.addItem(Game.gui.takeOffButton);
 		Game.gui.addItem(Game.gui.inventoryButton);
+		Game.gui.addItem(Game.gui.craftingButton);
 		
 	}
 	

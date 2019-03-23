@@ -14,7 +14,7 @@ import settings.Settings;
 
 public class GUIItems {
 
-	public JButton takeOffButton, inventoryButton, restartButton;
+	public JButton takeOffButton, inventoryButton, restartButton, craftingButton;
 	public ArrayList<JComponent> active = new ArrayList<JComponent>();
 	
 	public GUIItems() {
@@ -38,6 +38,17 @@ public class GUIItems {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				Game.inventory.setVisible(!Game.inventory.isVisible());
+			}
+		});
+		
+		craftingButton = new JButton();
+		craftingButton.setText("Crafting");
+		craftingButton.setFocusable(false);
+		craftingButton.setBounds(10, 60, Settings.buttonWidth, Settings.buttonHeight);
+		craftingButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				Game.crafting.setVisible(!Game.crafting.isVisible());
 			}
 		});
 		
