@@ -20,6 +20,8 @@ public class Player {
 	public Vector2 pos;
 	public Vector2 vel;
 
+	public long lastBuild;
+	
 	public int charge = 50;
 	public int health = 100;
 	public long lastDamage;
@@ -57,8 +59,8 @@ public class Player {
 	}
 
 	private void handleGravity(long delta) {
-		if(pos.y >= Settings.blockSize*(curPlanet.sizeY+10)) {
-			health = 0;
+		if(pos.y >= Settings.blockSize*(curPlanet.sizeY+2)) {
+			health -= 10;
 		}
 		vel.y += Settings.planetGravAcc*(delta/1000.0);
 	}
