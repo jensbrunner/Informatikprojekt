@@ -57,6 +57,9 @@ public class Player {
 	}
 
 	private void handleGravity(long delta) {
+		if(pos.y >= Settings.blockSize*(curPlanet.sizeY+10)) {
+			health = 0;
+		}
 		vel.y += Settings.planetGravAcc*(delta/1000.0);
 	}
 
